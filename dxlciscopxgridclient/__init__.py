@@ -1,9 +1,7 @@
 from __future__ import absolute_import
 
+from ._version import __version__
 from .client import CiscoPxGridClient
-
-__version__ = "0.0.0"
-
 
 def get_version():
     """
