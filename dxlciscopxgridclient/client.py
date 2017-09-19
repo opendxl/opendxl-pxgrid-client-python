@@ -58,28 +58,16 @@ class IdentityClientCategory(_BaseClientCategory):
 class EpsClientCategory(_BaseClientCategory):
 
     _EPS_PREFIX = CiscoPxGridClient._PXGRID_SERVICE_PREFIX + "eps/"
-    _EPS_GET_MITIGATION_ACTION_STATUS_BY_IP = _EPS_PREFIX + "getmitigationactionstatusbyip"
-    _EPS_GET_MITIGATION_ACTION_STATUS_BY_MAC = _EPS_PREFIX + "getmitigationactionstatusbymac"
     _EPS_SEND_MITIGATION_ACTION_BY_IP = _EPS_PREFIX + "sendmitigationactionbyip"
     _EPS_SEND_MITIGATION_ACTION_BY_MAC = _EPS_PREFIX + "sendmitigationactionbymac"
 
     def __init__(self, pxgrid_client):
         super(EpsClientCategory, self).__init__(pxgrid_client)
 
-    def get_mitigation_action_status_by_ip(self, ip_address):
-        request = Request(self._EPS_GET_MITIGATION_ACTION_STATUS_BY_IP)
-        MessageUtils.dict_to_json_payload(request, {CiscoPxGridClient._PARAM_IP: ip_address})
-        return MessageUtils.json_payload_to_dict(self._pxgrid_client._dxl_sync_request(request))
-
     def send_mitigation_action_by_ip(self, ip_address, action):
         request = Request(self._EPS_SEND_MITIGATION_ACTION_BY_IP)
         MessageUtils.dict_to_json_payload(request, {CiscoPxGridClient._PARAM_IP: ip_address,
                                                     CiscoPxGridClient._PARAM_ACTION: action, "foo": "bar"})
-        return MessageUtils.json_payload_to_dict(self._pxgrid_client._dxl_sync_request(request))
-
-    def get_mitigation_action_status_by_mac(self, mac_address):
-        request = Request(self._EPS_GET_MITIGATION_ACTION_STATUS_BY_MAC)
-        MessageUtils.dict_to_json_payload(request, {CiscoPxGridClient._PARAM_MAC: mac_address})
         return MessageUtils.json_payload_to_dict(self._pxgrid_client._dxl_sync_request(request))
 
     def send_mitigation_action_by_mac(self, mac_address, action):

@@ -38,63 +38,39 @@ with DxlClient(config) as dxl_client:
 
     class MyAncApplyEndpointPolicyCallback(AncApplyEndpointPolicyCallback):
         def on_apply_endpoint_policy(self, apply_dict):
-            print "on_apply_endpoint_policy\n" + \
-                  MessageUtils.dict_to_json(apply_dict, pretty_print=True)
+            print("on_apply_endpoint_policy\n" +
+                  MessageUtils.dict_to_json(apply_dict, pretty_print=True))
 
     class MyAncClearEndpointPolicyCallback(AncClearEndpointPolicyCallback):
         def on_clear_endpoint_policy(self, clear_dict):
-            print "on_clear_endpoint_policy\n" + \
-                  MessageUtils.dict_to_json(clear_dict, pretty_print=True)
+            print("on_clear_endpoint_policy\n" +
+                  MessageUtils.dict_to_json(clear_dict, pretty_print=True))
 
     class MyAncCreatePolicyCallback(AncCreatePolicyCallback):
         def on_create_policy(self, create_dict):
-            print "on_create_policy\n" + \
-                  MessageUtils.dict_to_json(create_dict, pretty_print=True)
+            print("on_create_policy\n" +
+                  MessageUtils.dict_to_json(create_dict, pretty_print=True))
 
     class MyAncUpdatePolicyCallback(AncUpdatePolicyCallback):
         def on_update_policy(self, update_dict):
-            print "on_update_policy\n" + \
-                  MessageUtils.dict_to_json(update_dict, pretty_print=True)
+            print("on_update_policy\n" +
+                  MessageUtils.dict_to_json(update_dict, pretty_print=True))
 
     class MyAncDeletePolicyCallback(AncDeletePolicyCallback):
         def on_delete_policy(self, delete_dict):
-            print "on_delete_policy\n" + \
-                  MessageUtils.dict_to_json(delete_dict, pretty_print=True)
+            print("on_delete_policy\n" +
+                  MessageUtils.dict_to_json(delete_dict, pretty_print=True))
 
-    #
     # Attach handlers
-    #
-
-    client.anc.add_apply_endpoint_policy_callback(MyAncApplyEndpointPolicyCallback())
-    client.anc.add_clear_endpoint_policy_callback(MyAncClearEndpointPolicyCallback())
+    client.anc.add_apply_endpoint_policy_callback(
+        MyAncApplyEndpointPolicyCallback())
+    client.anc.add_clear_endpoint_policy_callback(
+        MyAncClearEndpointPolicyCallback())
     client.anc.add_create_policy_callback(MyAncCreatePolicyCallback())
     client.anc.add_update_policy_callback(MyAncUpdatePolicyCallback())
     client.anc.add_delete_policy_callback(MyAncDeletePolicyCallback())
 
-    #
-    # client.anc.clear_endpoint_policy_by_ip
-    #
-
-    print '###: client.anc.clear_endpoint_policy_by_ip("10.84.200.48")'
-    try:
-        resp_dict = client.anc.clear_endpoint_policy_by_ip("10.84.200.48")
-        print "Response:\n{0}".format(
-            MessageUtils.dict_to_json(resp_dict, pretty_print=True))
-    except Exception as ex:
-        print str(ex)
-
-    #
-    # client.anc.apply_endpoint_policy_by_ip
-    #
-
-    # print '###: client.anc.apply_endpoint_policy_by_ip("10.84.200.48", "quarantine_policy")'
-    # try:
-    #     resp_dict = client.anc.apply_endpoint_policy_by_ip("10.84.200.48", "quarantine_policy")
-    #     print "Response:\n{0}".format(
-    #         MessageUtils.dict_to_json(resp_dict, pretty_print=True))
-    # except Exception as ex:
-    #     print str(ex)
-
-    time.sleep(60 * 60)
-
-
+    # Wait forever
+    print("Waiting for anc notifications...")
+    while True:
+        time.sleep(60)
