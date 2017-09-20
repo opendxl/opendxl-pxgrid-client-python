@@ -26,13 +26,13 @@ dist = setup(
     ],
 
     # Package author details:
-    author="",
+    author="McAfee LLC",
 
     # License
-    license="",
+    license="Apache License 2.0",
 
     # Keywords
-    keywords=[],
+    keywords=['opendxl', 'dxl', 'mcafee', 'client', 'cisco', 'pxgrid'],
 
     # Packages
     packages=[
@@ -40,13 +40,17 @@ dist = setup(
     ],
 
     # Details
-    url="",
+    url="http://www.mcafee.com",
 
-    description="",
+    description="Cisco pxGrid DXL client library",
 
     long_description=open('README').read(),
 
     classifiers=[
-        "Programming Language :: Python"
+        "Development Status :: 4 - Beta",
+        "Topic :: Software Development :: Libraries :: Python Modules",
+        "License :: OSI Approved :: Apache Software License",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 2.7",
     ],
 )
