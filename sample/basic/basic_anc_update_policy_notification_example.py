@@ -11,7 +11,7 @@ sys.path.append(root_dir + "/../..")
 sys.path.append(root_dir + "/..")
 
 from dxlciscopxgridclient.client import CiscoPxGridClient
-from dxlciscopxgridclient.callbacks import IdentitySessionCallback
+from dxlciscopxgridclient.callbacks import AncUpdatePolicyCallback
 
 # Import common logging and configuration
 from common import *
@@ -34,15 +34,15 @@ with DxlClient(config) as dxl_client:
     # Create client wrapper
     client = CiscoPxGridClient(dxl_client)
 
-    class MyIdentitySessionCallback(IdentitySessionCallback):
-        def on_session(self, session_dict):
-            print("on_session\n" +
-                  MessageUtils.dict_to_json(session_dict, pretty_print=True))
+    class MyAncUpdatePolicyCallback(AncUpdatePolicyCallback):
+        def on_update_policy(self, update_dict):
+            print("on_update_policy\n" +
+                  MessageUtils.dict_to_json(update_dict, pretty_print=True))
 
-    # Attach handlers
-    client.identity.add_session_callback(MyIdentitySessionCallback())
+    # Attach callback for 'update policy' events
+    client.anc.add_update_policy_callback(MyAncUpdatePolicyCallback())
 
     # Wait forever
-    print("Waiting for identity notifications...")
+    print("Waiting for update policy events...")
     while True:
         time.sleep(60)
