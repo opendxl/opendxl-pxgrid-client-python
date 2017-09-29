@@ -1,0 +1,441 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>dxlciscopxgridclient.callbacks module &#8212; Cisco pxGrid DXL Client Library 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="dxlciscopxgridclient.client module" href="dxlciscopxgridclient.client.html" />
+    <link rel="prev" title="dxlciscopxgridclient package" href="dxlciscopxgridclient.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="dxlciscopxgridclient.client.html" title="dxlciscopxgridclient.client module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="dxlciscopxgridclient.html" title="dxlciscopxgridclient package"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Cisco pxGrid DXL Client Library 0.1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="dxlciscopxgridclient.html" accesskey="U">dxlciscopxgridclient package</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-dxlciscopxgridclient.callbacks">
+<span id="dxlciscopxgridclient-callbacks-module"></span><h1>dxlciscopxgridclient.callbacks module<a class="headerlink" href="#module-dxlciscopxgridclient.callbacks" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="dxlciscopxgridclient.callbacks.AncApplyEndpointPolicyCallback">
+<em class="property">class </em><code class="descclassname">dxlciscopxgridclient.callbacks.</code><code class="descname">AncApplyEndpointPolicyCallback</code><a class="headerlink" href="#dxlciscopxgridclient.callbacks.AncApplyEndpointPolicyCallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">dxlclient.callbacks.EventCallback</span></code></p>
+<p>Callback wrapper which invokes the <a class="reference internal" href="#dxlciscopxgridclient.callbacks.AncApplyEndpointPolicyCallback.on_apply_endpoint_policy" title="dxlciscopxgridclient.callbacks.AncApplyEndpointPolicyCallback.on_apply_endpoint_policy"><code class="xref py py-meth docutils literal"><span class="pre">on_apply_endpoint_policy()</span></code></a> method
+when an apply endpoint policy event is received.</p>
+<dl class="method">
+<dt id="dxlciscopxgridclient.callbacks.AncApplyEndpointPolicyCallback.on_apply_endpoint_policy">
+<code class="descname">on_apply_endpoint_policy</code><span class="sig-paren">(</span><em>apply_dict</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlciscopxgridclient.callbacks.AncApplyEndpointPolicyCallback.on_apply_endpoint_policy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method invoked when an apply endpoint policy event occurs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>apply_dict</strong> (<em>dict</em>) &#8211; <p>Payload for the event notification. For
+example, the value for an event sent on application of an endpoint
+policy should look similar to this:</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;ipAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;192.168.1.1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;policyName&quot;</span><span class="p">:</span> <span class="s2">&quot;quarantine_policy&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dxlciscopxgridclient.callbacks.AncApplyEndpointPolicyCallback.on_event">
+<code class="descname">on_event</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlciscopxgridclient.callbacks.AncApplyEndpointPolicyCallback.on_event" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method invoked when an apply endpoint policy event occurs. Derived
+classes can implement the <a class="reference internal" href="#dxlciscopxgridclient.callbacks.AncApplyEndpointPolicyCallback.on_apply_endpoint_policy" title="dxlciscopxgridclient.callbacks.AncApplyEndpointPolicyCallback.on_apply_endpoint_policy"><code class="xref py py-meth docutils literal"><span class="pre">on_apply_endpoint_policy()</span></code></a> method
+instead of this method in order to process the event payload as a
+<cite>dict</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>event</strong> (<em>dxlclient.message.Event</em>) &#8211; Message received for the event
+notification</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dxlciscopxgridclient.callbacks.AncClearEndpointPolicyCallback">
+<em class="property">class </em><code class="descclassname">dxlciscopxgridclient.callbacks.</code><code class="descname">AncClearEndpointPolicyCallback</code><a class="headerlink" href="#dxlciscopxgridclient.callbacks.AncClearEndpointPolicyCallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">dxlclient.callbacks.EventCallback</span></code></p>
+<p>Callback wrapper which invokes the <a class="reference internal" href="#dxlciscopxgridclient.callbacks.AncClearEndpointPolicyCallback.on_clear_endpoint_policy" title="dxlciscopxgridclient.callbacks.AncClearEndpointPolicyCallback.on_clear_endpoint_policy"><code class="xref py py-meth docutils literal"><span class="pre">on_clear_endpoint_policy()</span></code></a> method
+when a clear endpoint policy event is received.</p>
+<dl class="method">
+<dt id="dxlciscopxgridclient.callbacks.AncClearEndpointPolicyCallback.on_clear_endpoint_policy">
+<code class="descname">on_clear_endpoint_policy</code><span class="sig-paren">(</span><em>clear_dict</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlciscopxgridclient.callbacks.AncClearEndpointPolicyCallback.on_clear_endpoint_policy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method invoked when a clear endpoint policy event occurs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>clear_dict</strong> (<em>dict</em>) &#8211; <p>Payload for the event notification. For
+example, the value for an event sent on clearing of an endpoint
+policy should look similar to this:</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;ipAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;192.168.1.1&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dxlciscopxgridclient.callbacks.AncClearEndpointPolicyCallback.on_event">
+<code class="descname">on_event</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlciscopxgridclient.callbacks.AncClearEndpointPolicyCallback.on_event" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method invoked when a clear endpoint policy event occurs. Derived
+classes can implement the <a class="reference internal" href="#dxlciscopxgridclient.callbacks.AncClearEndpointPolicyCallback.on_clear_endpoint_policy" title="dxlciscopxgridclient.callbacks.AncClearEndpointPolicyCallback.on_clear_endpoint_policy"><code class="xref py py-meth docutils literal"><span class="pre">on_clear_endpoint_policy()</span></code></a> method
+instead of this method in order to process the event payload as a
+<cite>dict</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>event</strong> (<em>dxlclient.message.Event</em>) &#8211; Message received for the event
+notification</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dxlciscopxgridclient.callbacks.AncCreatePolicyCallback">
+<em class="property">class </em><code class="descclassname">dxlciscopxgridclient.callbacks.</code><code class="descname">AncCreatePolicyCallback</code><a class="headerlink" href="#dxlciscopxgridclient.callbacks.AncCreatePolicyCallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">dxlclient.callbacks.EventCallback</span></code></p>
+<p>Callback wrapper which invokes the <a class="reference internal" href="#dxlciscopxgridclient.callbacks.AncCreatePolicyCallback.on_create_policy" title="dxlciscopxgridclient.callbacks.AncCreatePolicyCallback.on_create_policy"><code class="xref py py-meth docutils literal"><span class="pre">on_create_policy()</span></code></a> method when a
+clear policy event is received.</p>
+<dl class="method">
+<dt id="dxlciscopxgridclient.callbacks.AncCreatePolicyCallback.on_create_policy">
+<code class="descname">on_create_policy</code><span class="sig-paren">(</span><em>create_dict</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlciscopxgridclient.callbacks.AncCreatePolicyCallback.on_create_policy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method invoked when a create policy event occurs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>create_dict</strong> (<em>dict</em>) &#8211; <p>Payload for the event notification. For
+example, the value for an event sent on creation of a policy should
+look similar to this:</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;Quarantine&quot;</span> <span class="p">],</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;test_policy&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dxlciscopxgridclient.callbacks.AncCreatePolicyCallback.on_event">
+<code class="descname">on_event</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlciscopxgridclient.callbacks.AncCreatePolicyCallback.on_event" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method invoked when an create policy event occurs. Derived classes can
+implement the <a class="reference internal" href="#dxlciscopxgridclient.callbacks.AncCreatePolicyCallback.on_create_policy" title="dxlciscopxgridclient.callbacks.AncCreatePolicyCallback.on_create_policy"><code class="xref py py-meth docutils literal"><span class="pre">on_create_policy()</span></code></a> method instead of this method in
+order to process the event payload as a <cite>dict</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>event</strong> (<em>dxlclient.message.Event</em>) &#8211; Message received for the event
+notification</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dxlciscopxgridclient.callbacks.AncDeletePolicyCallback">
+<em class="property">class </em><code class="descclassname">dxlciscopxgridclient.callbacks.</code><code class="descname">AncDeletePolicyCallback</code><a class="headerlink" href="#dxlciscopxgridclient.callbacks.AncDeletePolicyCallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">dxlclient.callbacks.EventCallback</span></code></p>
+<p>Callback wrapper which invokes the <a class="reference internal" href="#dxlciscopxgridclient.callbacks.AncDeletePolicyCallback.on_delete_policy" title="dxlciscopxgridclient.callbacks.AncDeletePolicyCallback.on_delete_policy"><code class="xref py py-meth docutils literal"><span class="pre">on_delete_policy()</span></code></a> method
+when a delete policy event is received.</p>
+<dl class="method">
+<dt id="dxlciscopxgridclient.callbacks.AncDeletePolicyCallback.on_delete_policy">
+<code class="descname">on_delete_policy</code><span class="sig-paren">(</span><em>delete_dict</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlciscopxgridclient.callbacks.AncDeletePolicyCallback.on_delete_policy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method invoked when an delete policy event occurs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>delete_dict</strong> (<em>dict</em>) &#8211; <p>Payload for the event notification. For
+example, the value for an event sent on deletion of a policy should
+look similar to this:</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;Quarantine&quot;</span> <span class="p">],</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;test_policy&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dxlciscopxgridclient.callbacks.AncDeletePolicyCallback.on_event">
+<code class="descname">on_event</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlciscopxgridclient.callbacks.AncDeletePolicyCallback.on_event" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method invoked when a delete policy event occurs. Derived classes can
+implement the <a class="reference internal" href="#dxlciscopxgridclient.callbacks.AncDeletePolicyCallback.on_delete_policy" title="dxlciscopxgridclient.callbacks.AncDeletePolicyCallback.on_delete_policy"><code class="xref py py-meth docutils literal"><span class="pre">on_delete_policy()</span></code></a> method instead of this method in
+order to process the event payload as a <cite>dict</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>event</strong> (<em>dxlclient.message.Event</em>) &#8211; Message received for the event
+notification</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dxlciscopxgridclient.callbacks.AncUpdatePolicyCallback">
+<em class="property">class </em><code class="descclassname">dxlciscopxgridclient.callbacks.</code><code class="descname">AncUpdatePolicyCallback</code><a class="headerlink" href="#dxlciscopxgridclient.callbacks.AncUpdatePolicyCallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">dxlclient.callbacks.EventCallback</span></code></p>
+<p>Callback wrapper which invokes the <a class="reference internal" href="#dxlciscopxgridclient.callbacks.AncUpdatePolicyCallback.on_update_policy" title="dxlciscopxgridclient.callbacks.AncUpdatePolicyCallback.on_update_policy"><code class="xref py py-meth docutils literal"><span class="pre">on_update_policy()</span></code></a> method
+when an update policy event is received.</p>
+<dl class="method">
+<dt id="dxlciscopxgridclient.callbacks.AncUpdatePolicyCallback.on_event">
+<code class="descname">on_event</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlciscopxgridclient.callbacks.AncUpdatePolicyCallback.on_event" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method invoked when a update policy event occurs. Derived classes can
+implement the <a class="reference internal" href="#dxlciscopxgridclient.callbacks.AncUpdatePolicyCallback.on_update_policy" title="dxlciscopxgridclient.callbacks.AncUpdatePolicyCallback.on_update_policy"><code class="xref py py-meth docutils literal"><span class="pre">on_update_policy()</span></code></a> method instead of this method in
+order to process the event payload as a <cite>dict</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>event</strong> (<em>dxlclient.message.Event</em>) &#8211; Message received for the event
+notification</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dxlciscopxgridclient.callbacks.AncUpdatePolicyCallback.on_update_policy">
+<code class="descname">on_update_policy</code><span class="sig-paren">(</span><em>update_dict</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlciscopxgridclient.callbacks.AncUpdatePolicyCallback.on_update_policy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method invoked when an update policy event occurs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>update_dict</strong> (<em>dict</em>) &#8211; <p>Payload for the event notification. For
+example, the value for an event sent on update of a policy should
+look similar to this:</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;Quarantine&quot;</span> <span class="p">],</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;test_policy&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dxlciscopxgridclient.callbacks.IdentitySessionCallback">
+<em class="property">class </em><code class="descclassname">dxlciscopxgridclient.callbacks.</code><code class="descname">IdentitySessionCallback</code><a class="headerlink" href="#dxlciscopxgridclient.callbacks.IdentitySessionCallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">dxlclient.callbacks.EventCallback</span></code></p>
+<p>Callback wrapper which invokes the <a class="reference internal" href="#dxlciscopxgridclient.callbacks.IdentitySessionCallback.on_session" title="dxlciscopxgridclient.callbacks.IdentitySessionCallback.on_session"><code class="xref py py-meth docutils literal"><span class="pre">on_session()</span></code></a> method
+when a session event is received.</p>
+<dl class="method">
+<dt id="dxlciscopxgridclient.callbacks.IdentitySessionCallback.on_event">
+<code class="descname">on_event</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlciscopxgridclient.callbacks.IdentitySessionCallback.on_event" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method invoked when a session event occurs. Derived classes can
+implement the <a class="reference internal" href="#dxlciscopxgridclient.callbacks.IdentitySessionCallback.on_session" title="dxlciscopxgridclient.callbacks.IdentitySessionCallback.on_session"><code class="xref py py-meth docutils literal"><span class="pre">on_session()</span></code></a> method instead of this method in order
+to process the event payload as a <cite>dict</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>event</strong> (<em>dxlclient.message.Event</em>) &#8211; Message received for the event
+notification</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dxlciscopxgridclient.callbacks.IdentitySessionCallback.on_session">
+<code class="descname">on_session</code><span class="sig-paren">(</span><em>session_dict</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlciscopxgridclient.callbacks.IdentitySessionCallback.on_session" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method invoked when an session event occurs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session_dict</strong> (<em>dict</em>) &#8211; <p>Payload for the event notification. For
+example, the value for an event sent on start of a session should
+look similar to this:</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;IdentitySourceFirstPort&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;IdentitySourcePortEnd&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;IdentitySourcePortStart&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;MDMEndpoint&quot;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="nt">&quot;RADIUSAttrs&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="p">{</span>
+        <span class="nt">&quot;attrName&quot;</span><span class="p">:</span> <span class="s2">&quot;Acct-Session-Id&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;attrValue&quot;</span><span class="p">:</span> <span class="s2">&quot;123&quot;</span>
+    <span class="p">}</span> <span class="p">],</span>
+    <span class="nt">&quot;assessedPostureEvent&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="p">{}</span> <span class="p">],</span>
+    <span class="nt">&quot;attribute&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Authorization_Profiles&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;1234&quot;</span>
+    <span class="p">}</span> <span class="p">],</span>
+    <span class="nt">&quot;endpointCheckResult&quot;</span><span class="p">:</span> <span class="s2">&quot;none&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;endpointProfile&quot;</span><span class="p">:</span> <span class="s2">&quot;Microsoft-Device&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;gid&quot;</span><span class="p">:</span> <span class="s2">&quot;24703&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;interface&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;deviceAttachPt&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;deviceMgmtIntfID&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;ipAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;192.168.1.1&quot;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;ipIntfID&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span> <span class="nt">&quot;ipAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;192.168.1.1&quot;</span> <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;macAddress&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;00:11:22:33:44:55&quot;</span> <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;lastUpdateTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-09-21T22:43:38.006Z&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;providers&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;None&quot;</span> <span class="p">],</span>
+    <span class="nt">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;Started&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;root&quot;</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The value for the event sent on disconnection of a session should
+look similar to the above, except with the &#8220;state&#8221; element set to
+&#8220;Disconnected&#8221;, rather than &#8220;Started&#8221;.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="dxlciscopxgridclient.html"
+                        title="previous chapter">dxlciscopxgridclient package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="dxlciscopxgridclient.client.html"
+                        title="next chapter">dxlciscopxgridclient.client module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/dxlciscopxgridclient.callbacks.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="dxlciscopxgridclient.client.html" title="dxlciscopxgridclient.client module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="dxlciscopxgridclient.html" title="dxlciscopxgridclient package"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Cisco pxGrid DXL Client Library 0.1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="dxlciscopxgridclient.html" >dxlciscopxgridclient package</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017 McAfee LLC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.3.
+    </div>
+  </body>
+</html>

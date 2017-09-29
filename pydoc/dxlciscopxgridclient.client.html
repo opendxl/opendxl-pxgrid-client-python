@@ -1,0 +1,657 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>dxlciscopxgridclient.client module &#8212; Cisco pxGrid DXL Client Library 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="dxlciscopxgridclient.constants module" href="dxlciscopxgridclient.constants.html" />
+    <link rel="prev" title="dxlciscopxgridclient.callbacks module" href="dxlciscopxgridclient.callbacks.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="dxlciscopxgridclient.constants.html" title="dxlciscopxgridclient.constants module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="dxlciscopxgridclient.callbacks.html" title="dxlciscopxgridclient.callbacks module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Cisco pxGrid DXL Client Library 0.1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="dxlciscopxgridclient.html" accesskey="U">dxlciscopxgridclient package</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-dxlciscopxgridclient.client">
+<span id="dxlciscopxgridclient-client-module"></span><h1>dxlciscopxgridclient.client module<a class="headerlink" href="#module-dxlciscopxgridclient.client" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="dxlciscopxgridclient.client.AncClientCategory">
+<em class="property">class </em><code class="descclassname">dxlciscopxgridclient.client.</code><code class="descname">AncClientCategory</code><span class="sig-paren">(</span><em>pxgrid_client</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlciscopxgridclient.client.AncClientCategory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">dxlciscopxgridclient.client._BaseClientCategory</span></code></p>
+<p>A client class for interacting with Cisco Adaptive Network Control (ANC)
+functionality via pxGrid.</p>
+<p>Constructor parameters:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pxgrid_client</strong> (<a class="reference internal" href="#dxlciscopxgridclient.client.CiscoPxGridClient" title="dxlciscopxgridclient.client.CiscoPxGridClient"><em>CiscoPxGridClient</em></a>) &#8211; The pxGrid client object.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="dxlciscopxgridclient.client.AncClientCategory.add_apply_endpoint_policy_callback">
+<code class="descname">add_apply_endpoint_policy_callback</code><span class="sig-paren">(</span><em>callback</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlciscopxgridclient.client.AncClientCategory.add_apply_endpoint_policy_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register an object to called back upon when an ANC
+&#8220;apply endpoint policy&#8221; event is received.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>callback</strong> (<a class="reference internal" href="dxlciscopxgridclient.callbacks.html#dxlciscopxgridclient.callbacks.AncApplyEndpointPolicyCallback" title="dxlciscopxgridclient.callbacks.AncApplyEndpointPolicyCallback"><em>dxlciscopxgridclient.callbacks.AncApplyEndpointPolicyCallback</em></a>) &#8211; The callback to register.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dxlciscopxgridclient.client.AncClientCategory.add_clear_endpoint_policy_callback">
+<code class="descname">add_clear_endpoint_policy_callback</code><span class="sig-paren">(</span><em>callback</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlciscopxgridclient.client.AncClientCategory.add_clear_endpoint_policy_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register an object to called back upon when an ANC
+&#8220;clear endpoint policy&#8221; event is received.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>callback</strong> (<a class="reference internal" href="dxlciscopxgridclient.callbacks.html#dxlciscopxgridclient.callbacks.AncClearEndpointPolicyCallback" title="dxlciscopxgridclient.callbacks.AncClearEndpointPolicyCallback"><em>dxlciscopxgridclient.callbacks.AncClearEndpointPolicyCallback</em></a>) &#8211; The callback to register.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dxlciscopxgridclient.client.AncClientCategory.add_create_policy_callback">
+<code class="descname">add_create_policy_callback</code><span class="sig-paren">(</span><em>callback</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlciscopxgridclient.client.AncClientCategory.add_create_policy_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register an object to called back upon when an ANC
+&#8220;create endpoint policy&#8221; event is received.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>callback</strong> (<a class="reference internal" href="dxlciscopxgridclient.callbacks.html#dxlciscopxgridclient.callbacks.AncCreatePolicyCallback" title="dxlciscopxgridclient.callbacks.AncCreatePolicyCallback"><em>dxlciscopxgridclient.callbacks.AncCreatePolicyCallback</em></a>) &#8211; The callback to register.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dxlciscopxgridclient.client.AncClientCategory.add_delete_policy_callback">
+<code class="descname">add_delete_policy_callback</code><span class="sig-paren">(</span><em>callback</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlciscopxgridclient.client.AncClientCategory.add_delete_policy_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register an object to called back upon when an ANC
+&#8220;delete endpoint policy&#8221; event is received.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>callback</strong> (<a class="reference internal" href="dxlciscopxgridclient.callbacks.html#dxlciscopxgridclient.callbacks.AncDeletePolicyCallback" title="dxlciscopxgridclient.callbacks.AncDeletePolicyCallback"><em>dxlciscopxgridclient.callbacks.AncDeletePolicyCallback</em></a>) &#8211; The callback to register.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dxlciscopxgridclient.client.AncClientCategory.add_update_policy_callback">
+<code class="descname">add_update_policy_callback</code><span class="sig-paren">(</span><em>callback</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlciscopxgridclient.client.AncClientCategory.add_update_policy_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register an object to called back upon when an ANC
+&#8220;update endpoint policy&#8221; event is received.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>callback</strong> (<a class="reference internal" href="dxlciscopxgridclient.callbacks.html#dxlciscopxgridclient.callbacks.AncUpdatePolicyCallback" title="dxlciscopxgridclient.callbacks.AncUpdatePolicyCallback"><em>dxlciscopxgridclient.callbacks.AncUpdatePolicyCallback</em></a>) &#8211; The callback to register.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dxlciscopxgridclient.client.AncClientCategory.apply_endpoint_policy_by_ip">
+<code class="descname">apply_endpoint_policy_by_ip</code><span class="sig-paren">(</span><em>ip_address</em>, <em>policy_name</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlciscopxgridclient.client.AncClientCategory.apply_endpoint_policy_by_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply a policy to an endpoint by its IP address.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ip_address</strong> (<em>str</em>) &#8211; IP address of the endpoint.</li>
+<li><strong>policy_name</strong> (<em>str</em>) &#8211; Name of the policy to apply.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>Results of the attempt to apply the endpoint policy. On a
+successful application, the results should look similar to this:</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;ancStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">dict</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><strong>Exception</strong> &#8211; If the supplied policy name has already been
+applied to the endpoint, the policy name has not been defined, or
+if no session has been defined for an endpoint which corresponds to
+the IP address.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dxlciscopxgridclient.client.AncClientCategory.apply_endpoint_policy_by_mac">
+<code class="descname">apply_endpoint_policy_by_mac</code><span class="sig-paren">(</span><em>mac_address</em>, <em>policy_name</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlciscopxgridclient.client.AncClientCategory.apply_endpoint_policy_by_mac" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply a policy to an endpoint by its MAC address.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>mac_address</strong> (<em>str</em>) &#8211; MAC address of the endpoint.</li>
+<li><strong>policy_name</strong> (<em>str</em>) &#8211; Name of the policy to apply.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>Results of the attempt to apply the endpoint policy. On a
+successful application, the results should look similar to this:</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;ancStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">dict</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><strong>Exception</strong> &#8211; If the supplied policy name has already been
+applied to the endpoint or the policy name has not been defined.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dxlciscopxgridclient.client.AncClientCategory.clear_endpoint_policy_by_ip">
+<code class="descname">clear_endpoint_policy_by_ip</code><span class="sig-paren">(</span><em>ip_address</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlciscopxgridclient.client.AncClientCategory.clear_endpoint_policy_by_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear the policy for an endpoint by its IP address.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ip_address</strong> (<em>str</em>) &#8211; IP address of the endpoint.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Results of the attempt to clear the endpoint policy. On a
+successful clear attempt, the results should look similar to this:<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;ancStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>Exception</strong> &#8211; If no policy has been associated with the endpoint.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dxlciscopxgridclient.client.AncClientCategory.clear_endpoint_policy_by_mac">
+<code class="descname">clear_endpoint_policy_by_mac</code><span class="sig-paren">(</span><em>mac_address</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlciscopxgridclient.client.AncClientCategory.clear_endpoint_policy_by_mac" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear the policy for an endpoint by its MAC address.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mac_address</strong> (<em>str</em>) &#8211; MAC address of the endpoint.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Results of the attempt to clear the endpoint policy. On a
+successful clear attempt, the results should look similar to this:<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;ancStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>Exception</strong> &#8211; If no policy has been associated with the endpoint.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dxlciscopxgridclient.client.AncClientCategory.get_endpoint_by_ip">
+<code class="descname">get_endpoint_by_ip</code><span class="sig-paren">(</span><em>ip_address</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlciscopxgridclient.client.AncClientCategory.get_endpoint_by_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get information for an endpoint by its IP address.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ip_address</strong> (<em>str</em>) &#8211; IP address of the endpoint.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The endpoint information, which should look similar to this:<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;ancEndpoint&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;macAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;00:11:22:33:44:55&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;policyName&quot;</span><span class="p">:</span> <span class="s2">&quot;quarantine_policy&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;ancStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>Exception</strong> &#8211; If no policy has been associated with the endpoint
+or if no session has been defined for an endpoint which corresponds
+to the IP address.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dxlciscopxgridclient.client.AncClientCategory.get_endpoint_by_mac">
+<code class="descname">get_endpoint_by_mac</code><span class="sig-paren">(</span><em>mac_address</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlciscopxgridclient.client.AncClientCategory.get_endpoint_by_mac" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get information for an endpoint by its MAC address.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mac_address</strong> (<em>str</em>) &#8211; MAC address of the endpoint.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The endpoint information, which should look similar to this:<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;ancEndpoint&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;macAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;00:11:22:33:44:55&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;policyName&quot;</span><span class="p">:</span> <span class="s2">&quot;quarantine_policy&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;ancStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>Exception</strong> &#8211; If no policy has been associated with the endpoint.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dxlciscopxgridclient.client.AncClientCategory.retrieve_all_policies">
+<code class="descname">retrieve_all_policies</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dxlciscopxgridclient.client.AncClientCategory.retrieve_all_policies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve information for all ANC policies.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The policy information, which should look similar to this:<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;ancStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;ancpolicy&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;ShutDown&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;shutdown_policy&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;Quarantine&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;quarantine_policy&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dxlciscopxgridclient.client.AncClientCategory.retrieve_policy_by_name">
+<code class="descname">retrieve_policy_by_name</code><span class="sig-paren">(</span><em>policy_name</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlciscopxgridclient.client.AncClientCategory.retrieve_policy_by_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve information for an ANC policy by name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>policy_name</strong> (<em>str</em>) &#8211; Name of the policy.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The policy information, which should look similar to this:<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;ancStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;ancpolicy&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;Quarantine&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;quarantine_policy&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>Exception</strong> &#8211; If the policy name has not been defined.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dxlciscopxgridclient.client.CiscoPxGridClient">
+<em class="property">class </em><code class="descclassname">dxlciscopxgridclient.client.</code><code class="descname">CiscoPxGridClient</code><span class="sig-paren">(</span><em>dxl_client</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlciscopxgridclient.client.CiscoPxGridClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">dxlbootstrap.client.Client</span></code></p>
+<p>The &#8220;Cisco pxGrid DXL Client Library&#8221; client wrapper class.</p>
+<p>Constructor parameters:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dxl_client</strong> &#8211; The DXL client to use for communication with the
+fabric</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="dxlciscopxgridclient.client.CiscoPxGridClient.anc">
+<code class="descname">anc</code><a class="headerlink" href="#dxlciscopxgridclient.client.CiscoPxGridClient.anc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves a client object for use in interacting with Cisco Adaptive
+Network Control (ANC) functionality via pxGrid.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The ANC instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#dxlciscopxgridclient.client.AncClientCategory" title="dxlciscopxgridclient.client.AncClientCategory">AncClientCategory</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dxlciscopxgridclient.client.CiscoPxGridClient.eps">
+<code class="descname">eps</code><a class="headerlink" href="#dxlciscopxgridclient.client.CiscoPxGridClient.eps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves a client object for use in interacting with Cisco Endpoint
+Protection Service (EPS) functionality via pxGrid.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The EPS instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#dxlciscopxgridclient.client.EpsClientCategory" title="dxlciscopxgridclient.client.EpsClientCategory">EpsClientCategory</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="dxlciscopxgridclient.client.CiscoPxGridClient.identity">
+<code class="descname">identity</code><a class="headerlink" href="#dxlciscopxgridclient.client.CiscoPxGridClient.identity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves a client object for use in interacting with identity services
+in Cisco pxGrid.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The identity client instance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#dxlciscopxgridclient.client.IdentityClientCategory" title="dxlciscopxgridclient.client.IdentityClientCategory">IdentityClientCategory</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dxlciscopxgridclient.client.EpsClientCategory">
+<em class="property">class </em><code class="descclassname">dxlciscopxgridclient.client.</code><code class="descname">EpsClientCategory</code><span class="sig-paren">(</span><em>pxgrid_client</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlciscopxgridclient.client.EpsClientCategory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">dxlciscopxgridclient.client._BaseClientCategory</span></code></p>
+<p>A client class for interacting with Cisco Endpoint Protection Service (EPS)
+functionality via pxGrid.</p>
+<p>Constructor parameters:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pxgrid_client</strong> (<a class="reference internal" href="#dxlciscopxgridclient.client.CiscoPxGridClient" title="dxlciscopxgridclient.client.CiscoPxGridClient"><em>CiscoPxGridClient</em></a>) &#8211; The pxGrid client object.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="dxlciscopxgridclient.client.EpsClientCategory.send_mitigation_action_by_ip">
+<code class="descname">send_mitigation_action_by_ip</code><span class="sig-paren">(</span><em>ip_address</em>, <em>action</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlciscopxgridclient.client.EpsClientCategory.send_mitigation_action_by_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send an EPS mitigation action for an endpoint IP address.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ip_address</strong> (<em>str</em>) &#8211; IP address of the endpoint for which the action
+should be performed.</li>
+<li><strong>action</strong> (<a class="reference internal" href="dxlciscopxgridclient.constants.html#dxlciscopxgridclient.constants.EpsAction" title="dxlciscopxgridclient.constants.EpsAction"><em>dxlciscopxgridclient.constants.EpsAction</em></a>) &#8211; The action to
+perform.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>Results of the attempt to send the action. The results for a
+successful send should look similar to this:</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;gid&quot;</span><span class="p">:</span> <span class="s2">&quot;150&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;macInterface&quot;</span><span class="p">:</span> <span class="s2">&quot;00:11:22:33:44:55&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;mitigationStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;complete&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">dict</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><strong>Exception</strong> &#8211; If no session has been established for an endpoint
+which corresponds to the IP address.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dxlciscopxgridclient.client.EpsClientCategory.send_mitigation_action_by_mac">
+<code class="descname">send_mitigation_action_by_mac</code><span class="sig-paren">(</span><em>mac_address</em>, <em>action</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlciscopxgridclient.client.EpsClientCategory.send_mitigation_action_by_mac" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send an EPS mitigation action for an endpoint MAC address.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>mac_address</strong> (<em>str</em>) &#8211; MAC address of the endpoint for which the
+action should be performed.</li>
+<li><strong>action</strong> (<a class="reference internal" href="dxlciscopxgridclient.constants.html#dxlciscopxgridclient.constants.EpsAction" title="dxlciscopxgridclient.constants.EpsAction"><em>dxlciscopxgridclient.constants.EpsAction</em></a>) &#8211; The action to
+perform.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>Results of the attempt to send the action. The results for a
+successful send should look similar to this:</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;gid&quot;</span><span class="p">:</span> <span class="s2">&quot;150&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;macInterface&quot;</span><span class="p">:</span> <span class="s2">&quot;00:11:22:33:44:55&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;mitigationStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;complete&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dict</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="dxlciscopxgridclient.client.IdentityClientCategory">
+<em class="property">class </em><code class="descclassname">dxlciscopxgridclient.client.</code><code class="descname">IdentityClientCategory</code><span class="sig-paren">(</span><em>pxgrid_client</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlciscopxgridclient.client.IdentityClientCategory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">dxlciscopxgridclient.client._BaseClientCategory</span></code></p>
+<p>A client class for interacting with identity services in Cisco pxGrid.</p>
+<p>Constructor parameters:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pxgrid_client</strong> (<a class="reference internal" href="#dxlciscopxgridclient.client.CiscoPxGridClient" title="dxlciscopxgridclient.client.CiscoPxGridClient"><em>CiscoPxGridClient</em></a>) &#8211; The pxGrid client object.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="dxlciscopxgridclient.client.IdentityClientCategory.add_session_callback">
+<code class="descname">add_session_callback</code><span class="sig-paren">(</span><em>callback</em><span class="sig-paren">)</span><a class="headerlink" href="#dxlciscopxgridclient.client.IdentityClientCategory.add_session_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register an object to called back upon when a session event is
+received.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>callback</strong> (<a class="reference internal" href="dxlciscopxgridclient.callbacks.html#dxlciscopxgridclient.callbacks.IdentitySessionCallback" title="dxlciscopxgridclient.callbacks.IdentitySessionCallback"><em>dxlciscopxgridclient.callbacks.IdentitySessionCallback</em></a>) &#8211; The callback to register.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="dxlciscopxgridclient.callbacks.html"
+                        title="previous chapter">dxlciscopxgridclient.callbacks module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="dxlciscopxgridclient.constants.html"
+                        title="next chapter">dxlciscopxgridclient.constants module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/dxlciscopxgridclient.client.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="dxlciscopxgridclient.constants.html" title="dxlciscopxgridclient.constants module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="dxlciscopxgridclient.callbacks.html" title="dxlciscopxgridclient.callbacks module"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Cisco pxGrid DXL Client Library 0.1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="dxlciscopxgridclient.html" >dxlciscopxgridclient package</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017 McAfee LLC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.3.
+    </div>
+  </body>
+</html>

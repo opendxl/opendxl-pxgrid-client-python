@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Authorize Client to Use Cisco pxGrid via DXL &#8212; Cisco pxGrid DXL Client Library 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Basic Apply ANC Endpoint Policy by IP Address Example" href="basicancapplyendpointpolicybyipexample.html" />
+    <link rel="prev" title="Samples Configuration" href="sampleconfig.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="basicancapplyendpointpolicybyipexample.html" title="Basic Apply ANC Endpoint Policy by IP Address Example"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="sampleconfig.html" title="Samples Configuration"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Cisco pxGrid DXL Client Library 0.1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="authorize-client-to-use-cisco-pxgrid-via-dxl">
+<h1>Authorize Client to Use Cisco pxGrid via DXL<a class="headerlink" href="#authorize-client-to-use-cisco-pxgrid-via-dxl" title="Permalink to this headline">¶</a></h1>
+<p>By default, systems other than the McAfee ePolicy Orchestrator (ePO) server are
+not allowed to access Cisco pxGrid over DXL. In order to allow the pxGrid
+examples to work, the authorization restrictions for the &#8220;DXL Cisco pxGrid
+Queries&#8221; (for the examples which send queries) and &#8220;DXL Cisco pxGrid
+Notifications&#8221; (for the examples which receive notifications) topic groups
+must be modified to include the Certificate Authority (CA) and/or certificate
+used by the client executing the examples.</p>
+<p>Please see the <a class="reference external" href="https://opendxl.github.io/opendxl-client-python/pydoc/topicauthoverview.html">Authorization Overview</a>
+section in the OpenDXL Python client documentation for more information on DXL
+Topic Authorization.</p>
+<p>The following steps walk through the process of allowing a DXL client to send
+messages on the DXL Topics <code class="docutils literal"><span class="pre">/mcafee/service/pxgrid/#</span></code> which are
+associated with the DXL Topic Authorization Group <code class="docutils literal"><span class="pre">DXL</span> <span class="pre">Cisco</span> <span class="pre">pxGrid</span> <span class="pre">Queries</span></code>:</p>
+<ol class="arabic">
+<li><p class="first">Navigate to <strong>Server Settings</strong> and select the <strong>DXL Topic Authorization</strong>
+setting on the left navigation bar.</p>
+<blockquote>
+<div><img alt="_images/enablepxgridauth1.png" src="_images/enablepxgridauth1.png" />
+</div></blockquote>
+</li>
+<li><p class="first">Click the <strong>Edit</strong> button in the lower right corner (as shown in the image above)</p>
+<blockquote>
+<div><img alt="_images/enablepxgridauth2.png" src="_images/enablepxgridauth2.png" />
+</div></blockquote>
+</li>
+<li><p class="first">Select the check box next to the DXL Topic Authorization Group
+<code class="docutils literal"><span class="pre">DXL</span> <span class="pre">Cisco</span> <span class="pre">pxGrid</span> <span class="pre">Queries</span></code> (as shown in the image above)</p>
+<blockquote>
+<div><img alt="_images/enablepxgridauth3.png" src="_images/enablepxgridauth3.png" />
+</div></blockquote>
+</li>
+<li><p class="first">Click the <strong>Actions</strong> button and select <strong>Restrict Send Certificates</strong> to
+select certificates allowed to send messages to the topics associated with
+the <code class="docutils literal"><span class="pre">DXL</span> <span class="pre">Cisco</span> <span class="pre">pxGrid</span> <span class="pre">Queries</span></code> authorization group (as shown in the image
+above)</p>
+<blockquote>
+<div><img alt="_images/enablepxgridauth4.png" src="_images/enablepxgridauth4.png" />
+</div></blockquote>
+</li>
+<li><p class="first">Select the check box next to any certificate to indicate that only DXL
+Clients with the selected certs or child certs (or tags separately
+specified) will be allowed to send DXL messages on topics associated with
+the <code class="docutils literal"><span class="pre">DXL</span> <span class="pre">Cisco</span> <span class="pre">pxGrid</span> <span class="pre">Queries</span></code> authorization group</p>
+<blockquote>
+<div><img alt="_images/enablepxgridauth5.png" src="_images/enablepxgridauth5.png" />
+</div></blockquote>
+</li>
+<li><p class="first">Click the <strong>OK</strong> button in the lower right corner (as shown in the image above)</p>
+<blockquote>
+<div><img alt="_images/enablepxgridauth6.png" src="_images/enablepxgridauth6.png" />
+</div></blockquote>
+</li>
+<li><p class="first">Click the <strong>Save</strong> button in the lower right corner (as shown in the image above)</p>
+<blockquote>
+<div><img alt="_images/enablepxgridauth7.png" src="_images/enablepxgridauth7.png" />
+</div></blockquote>
+</li>
+</ol>
+<p>The steps for enabling a DXL client to receive messages on the DXL Topics
+<code class="docutils literal"><span class="pre">/mcafee/event/pxgrid/#</span></code> are very similar to the steps above. The only
+differences are:</p>
+<ul class="simple">
+<li>The <code class="docutils literal"><span class="pre">DXL</span> <span class="pre">Cisco</span> <span class="pre">pxGrid</span> <span class="pre">Notifications</span></code> group should be selected instead of
+the <code class="docutils literal"><span class="pre">DXL</span> <span class="pre">Cisco</span> <span class="pre">pxGrid</span> <span class="pre">Queries</span></code> group.</li>
+<li>The <code class="docutils literal"><span class="pre">Restrict</span> <span class="pre">Receive</span> <span class="pre">Certificates</span></code> action should be selected instead of
+the <code class="docutils literal"><span class="pre">Restrict</span> <span class="pre">Send</span> <span class="pre">Certificates</span></code> action.</li>
+</ul>
+<img alt="_images/enablepxgridauth8.png" src="_images/enablepxgridauth8.png" />
+<p>Once receive permission has been granted for the
+<code class="docutils literal"><span class="pre">DXL</span> <span class="pre">Cisco</span> <span class="pre">pxGrid</span> <span class="pre">Notifications</span></code> group and send permission has been granted
+for the <code class="docutils literal"><span class="pre">DXL</span> <span class="pre">Cisco</span> <span class="pre">pxGrid</span> <span class="pre">Queries</span></code> group, a &#8220;Certificate&#8221; link should appear
+for each cell (as shown in the image above).</p>
+<p>The DXL Topic Authorization information will propagate to the DXL brokers. This
+process can take several minutes to complete.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="sampleconfig.html"
+                        title="previous chapter">Samples Configuration</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="basicancapplyendpointpolicybyipexample.html"
+                        title="next chapter">Basic Apply ANC Endpoint Policy by IP Address Example</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pxgridauth.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="basicancapplyendpointpolicybyipexample.html" title="Basic Apply ANC Endpoint Policy by IP Address Example"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="sampleconfig.html" title="Samples Configuration"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Cisco pxGrid DXL Client Library 0.1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017 McAfee LLC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Basic Update ANC Policy Notification Example &#8212; Cisco pxGrid DXL Client Library 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Basic Delete ANC Policy Notification Example" href="basicancdeletepolicynotificationexample.html" />
+    <link rel="prev" title="Basic Create ANC Policy Notification Example" href="basicanccreatepolicynotificationexample.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="basicancdeletepolicynotificationexample.html" title="Basic Delete ANC Policy Notification Example"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="basicanccreatepolicynotificationexample.html" title="Basic Create ANC Policy Notification Example"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Cisco pxGrid DXL Client Library 0.1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="basic-update-anc-policy-notification-example">
+<h1>Basic Update ANC Policy Notification Example<a class="headerlink" href="#basic-update-anc-policy-notification-example" title="Permalink to this headline">¶</a></h1>
+<p>This sample registers and outputs messages received for Cisco Adaptive
+Network Control (ANC) <code class="docutils literal"><span class="pre">update</span> <span class="pre">policy</span></code> notifications via DXL and Cisco pxGrid.</p>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">The samples configuration step has been completed (see <a class="reference internal" href="sampleconfig.html"><span class="doc">Samples Configuration</span></a>).</p>
+</li>
+<li><p class="first">The DXL fabric to which the client will connect has been bridged to Cisco
+pxGrid.</p>
+</li>
+<li><p class="first">The Python client has been authorized to receive
+<code class="docutils literal"><span class="pre">DXL</span> <span class="pre">Cisco</span> <span class="pre">pxGrid</span> <span class="pre">Notifications</span></code> (see <a class="reference internal" href="pxgridauth.html"><span class="doc">Authorize Client to Use Cisco pxGrid via DXL</span></a>).</p>
+</li>
+<li><p class="first">An ANC policy has been configured. The policy could be created by logging
+into the Cisco Identity Services Engine (ISE) web interface and performing
+the following steps:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Navigate to <strong>Operations</strong> → <strong>Adaptive Network Control</strong> →
+<strong>Policy List</strong>.</li>
+<li>On the <strong>List</strong> screen, click on the <strong>Add</strong> button.</li>
+<li>On the <strong>List</strong> → <strong>New</strong> screen, enter <code class="docutils literal"><span class="pre">test_policy</span></code> in the
+<strong>name</strong> field, select <code class="docutils literal"><span class="pre">QUARANTINE</span></code> in the <strong>Action</strong> field, and press
+the <strong>Submit</strong> button.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="running">
+<h2>Running<a class="headerlink" href="#running" title="Permalink to this headline">¶</a></h2>
+<p>To run this sample execute the
+<code class="docutils literal"><span class="pre">sample/basic/basic_anc_update_policy_notification_example.py</span></code> script as
+follows:</p>
+<blockquote>
+<div><div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">sample</span><span class="o">/</span><span class="n">basic</span><span class="o">/</span><span class="n">basic_anc_update_policy_notification_example</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>After the example starts up, the initial output should appear similar to the
+following:</p>
+<blockquote>
+<div><div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Waiting</span> <span class="k">for</span> <span class="n">update</span> <span class="n">policy</span> <span class="n">events</span><span class="o">...</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>To generate an <code class="docutils literal"><span class="pre">update</span> <span class="pre">policy</span></code> notification, update an ANC policy on the
+server. The policy could be updated by logging into the ISE web interface and
+performing the following steps:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Navigate to <strong>Operations</strong> → <strong>Adaptive Network Control</strong> →
+<strong>Policy List</strong>.</li>
+<li>On the <strong>List</strong> screen, check the box next to the policy name &#8211; for
+example: <code class="docutils literal"><span class="pre">test_policy</span></code> &#8211; and press the <strong>Edit</strong> button.</li>
+<li>On the <strong>List</strong> → <strong>policy</strong> screen, change the value in the
+<strong>Action</strong> field. For example, if the current value were <code class="docutils literal"><span class="pre">QUARANTINE</span></code>,
+the value could be changed to <code class="docutils literal"><span class="pre">PORT_BOUNCE</span></code>. Press the <strong>Save</strong>
+button to commit the change.</li>
+</ul>
+</div></blockquote>
+<p>A message similar to the following should appear in the output of the
+notification example:</p>
+<blockquote>
+<div><div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;newPolicy&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;PortBounce&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;test_policy&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;oldPolicy&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;Quarantine&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;test_policy&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="details">
+<h2>Details<a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+<p>The majority of the sample code is shown below:</p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Create the client</span>
+<span class="k">with</span> <span class="n">DxlClient</span><span class="p">(</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">dxl_client</span><span class="p">:</span>
+
+    <span class="c1"># Connect to the fabric</span>
+    <span class="n">dxl_client</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Connected to DXL fabric.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Create client wrapper</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="n">CiscoPxGridClient</span><span class="p">(</span><span class="n">dxl_client</span><span class="p">)</span>
+
+    <span class="k">class</span> <span class="nc">MyAncUpdatePolicyCallback</span><span class="p">(</span><span class="n">AncUpdatePolicyCallback</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">on_update_policy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">update_dict</span><span class="p">):</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;on_update_policy</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>
+                  <span class="n">MessageUtils</span><span class="o">.</span><span class="n">dict_to_json</span><span class="p">(</span><span class="n">update_dict</span><span class="p">,</span> <span class="n">pretty_print</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
+
+    <span class="c1"># Attach callback for &#39;update policy&#39; events</span>
+    <span class="n">client</span><span class="o">.</span><span class="n">anc</span><span class="o">.</span><span class="n">add_update_policy_callback</span><span class="p">(</span><span class="n">MyAncUpdatePolicyCallback</span><span class="p">())</span>
+
+    <span class="c1"># Wait forever</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Waiting for update policy events...&quot;</span><span class="p">)</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Once a connection is established to the DXL fabric, a
+<a class="reference internal" href="dxlciscopxgridclient.client.html#dxlciscopxgridclient.client.CiscoPxGridClient" title="dxlciscopxgridclient.client.CiscoPxGridClient"><code class="xref py py-class docutils literal"><span class="pre">dxlciscopxgridclient.client.CiscoPxGridClient</span></code></a> instance is created which
+will be used to invoke remote commands via Cisco pxGrid.</p>
+<p>Next, the
+<a class="reference internal" href="dxlciscopxgridclient.client.html#dxlciscopxgridclient.client.AncClientCategory.add_update_policy_callback" title="dxlciscopxgridclient.client.AncClientCategory.add_update_policy_callback"><code class="xref py py-meth docutils literal"><span class="pre">dxlciscopxgridclient.client.AncClientCategory.add_update_policy_callback()</span></code></a>
+method is invoked to register a callback for <code class="docutils literal"><span class="pre">update</span> <span class="pre">policy</span></code> event
+notifications.</p>
+<p>When an <code class="docutils literal"><span class="pre">update</span> <span class="pre">policy</span></code> event occurs, the <code class="docutils literal"><span class="pre">on_update_policy</span></code> method in the
+<code class="docutils literal"><span class="pre">MyAncUpdatePolicyCallback</span></code> class is invoked. The <code class="docutils literal"><span class="pre">update_dict</span></code> parameter
+passed into the callback, a dictionary (<code class="docutils literal"><span class="pre">dict</span></code>) which contains the content of
+the event notification, is displayed.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Basic Update ANC Policy Notification Example</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#running">Running</a></li>
+<li><a class="reference internal" href="#details">Details</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="basicanccreatepolicynotificationexample.html"
+                        title="previous chapter">Basic Create ANC Policy Notification Example</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="basicancdeletepolicynotificationexample.html"
+                        title="next chapter">Basic Delete ANC Policy Notification Example</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/basicancupdatepolicynotificationexample.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="basicancdeletepolicynotificationexample.html" title="Basic Delete ANC Policy Notification Example"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="basicanccreatepolicynotificationexample.html" title="Basic Create ANC Policy Notification Example"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Cisco pxGrid DXL Client Library 0.1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017 McAfee LLC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.3.
+    </div>
+  </body>
+</html>
