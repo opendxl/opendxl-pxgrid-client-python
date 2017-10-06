@@ -1,0 +1,6 @@
+MANIFEST
+dist/
+sample/dxlclient.config
+*.pyc
+build/
+dxlciscopxgridclient.egg-info/

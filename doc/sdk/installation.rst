@@ -10,6 +10,9 @@ Prerequisites
 * The OpenDXL Python Client prerequisites must be satisfied
    `<https://opendxl.github.io/opendxl-client-python/pydoc/installation.html>`_
 
+* The DXL fabric to which the client will connect has been bridged to Cisco
+  pxGrid.
+
 Installation
 ************
 

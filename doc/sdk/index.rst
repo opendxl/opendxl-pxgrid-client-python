@@ -26,10 +26,29 @@ Configuration
     :maxdepth: 1
 
     sampleconfig
+    pxgridauth
 
 Basic
 
-    TODO: Provide samples documentation
+.. toctree::
+    :maxdepth: 1
+
+    basicancapplyendpointpolicybyipexample
+    basicancapplyendpointpolicybymacexample
+    basicancapplyendpointpolicynotificationexample
+    basicancclearendpointpolicybyipexample
+    basicancclearendpointpolicybymacexample
+    basicancclearendpointpolicynotificationexample
+    basicancgetendpointbyipexample
+    basicancgetendpointbymacexample
+    basicancretrieveallpoliciesexample
+    basicancretrievepolicybynameexample
+    basicanccreatepolicynotificationexample
+    basicancupdatepolicynotificationexample
+    basicancdeletepolicynotificationexample
+    basicepssendmitigationactionbyipexample
+    basicepssendmitigationactionbymacexample
+    basicidentitysessionnotificationexample
 
 Python API
 ----------
