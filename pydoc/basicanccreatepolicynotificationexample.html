@@ -66,6 +66,8 @@ Network Control (ANC) <code class="docutils literal"><span class="pre">create</s
 pxGrid.</li>
 <li>The Python client has been authorized to receive
 <code class="docutils literal"><span class="pre">DXL</span> <span class="pre">Cisco</span> <span class="pre">pxGrid</span> <span class="pre">Notifications</span></code> (see <a class="reference internal" href="pxgridauth.html"><span class="doc">Authorize Client to Use Cisco pxGrid via DXL</span></a>).</li>
+<li>ANC <code class="docutils literal"><span class="pre">Create</span> <span class="pre">Policy</span></code> notifications from pxGrid have been enabled (see
+<a class="reference internal" href="pxgridnotifications.html"><span class="doc">Enable Cisco pxGrid Notifications for DXL</span></a>).</li>
 </ul>
 </div>
 <div class="section" id="running">
@@ -143,7 +145,7 @@ notification example:</p>
 </div></blockquote>
 <p>Once a connection is established to the DXL fabric, a
 <a class="reference internal" href="dxlciscopxgridclient.client.html#dxlciscopxgridclient.client.CiscoPxGridClient" title="dxlciscopxgridclient.client.CiscoPxGridClient"><code class="xref py py-class docutils literal"><span class="pre">dxlciscopxgridclient.client.CiscoPxGridClient</span></code></a> instance is created which
-will be used to invoke remote commands via Cisco pxGrid.</p>
+will be used to integrate with Cisco pxGrid.</p>
 <p>Next, the
 <a class="reference internal" href="dxlciscopxgridclient.client.html#dxlciscopxgridclient.client.AncClientCategory.add_create_policy_callback" title="dxlciscopxgridclient.client.AncClientCategory.add_create_policy_callback"><code class="xref py py-meth docutils literal"><span class="pre">dxlciscopxgridclient.client.AncClientCategory.add_create_policy_callback()</span></code></a>
 method is invoked to register a callback for <code class="docutils literal"><span class="pre">create</span> <span class="pre">policy</span></code> event

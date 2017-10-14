@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Overview &#8212; Cisco pxGrid DXL Client Library 0.1.0 documentation</title>
+    <title>Enable Cisco pxGrid Notifications for DXL &#8212; Cisco pxGrid DXL Client Library 0.1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -26,8 +26,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Library Installation" href="installation.html" />
-    <link rel="prev" title="Cisco pxGrid DXL Client Library" href="index.html" /> 
+    <link rel="next" title="Basic Apply ANC Endpoint Policy by IP Address Example" href="basicancapplyendpointpolicybyipexample.html" />
+    <link rel="prev" title="Authorize Client to Use Cisco pxGrid via DXL" href="pxgridauth.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -40,10 +40,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="installation.html" title="Library Installation"
+          <a href="basicancapplyendpointpolicybyipexample.html" title="Basic Apply ANC Endpoint Policy by IP Address Example"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Cisco pxGrid DXL Client Library"
+          <a href="pxgridauth.html" title="Authorize Client to Use Cisco pxGrid via DXL"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">Cisco pxGrid DXL Client Library 0.1.0 documentation</a> &#187;</li> 
       </ul>
@@ -54,14 +54,42 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="overview">
-<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
-<p>The Cisco pxGrid DXL client library provides a high level wrapper for
-integrating
-<a class="reference external" href="https://www.cisco.com/c/en/us/products/security/pxgrid.html">Cisco pxGrid</a>
-with the
-<a class="reference external" href="http://www.mcafee.com/us/solutions/data-exchange-layer.aspx">Data Exchange Layer</a>
-(DXL) fabric.</p>
+  <div class="section" id="enable-cisco-pxgrid-notifications-for-dxl">
+<h1>Enable Cisco pxGrid Notifications for DXL<a class="headerlink" href="#enable-cisco-pxgrid-notifications-for-dxl" title="Permalink to this headline">¶</a></h1>
+<p>In order to allow the pxGrid examples to receive notifications, the
+notifications must be enabled on the ePO server. The following steps walk
+through the process for enabling notifications from the ePO web interface:</p>
+<ol class="arabic">
+<li><p class="first">Navigate to <strong>Server Settings</strong> and select the <strong>DXL Cisco pxGrid</strong>
+setting on the left navigation bar.</p>
+<blockquote>
+<div><img alt="_images/enablepxgridnotifications1.png" src="_images/enablepxgridnotifications1.png" />
+</div></blockquote>
+</li>
+<li><p class="first">Click the <strong>Edit</strong> button in the lower right corner (as shown in the image
+above)</p>
+<blockquote>
+<div><img alt="_images/enablepxgridnotifications2.png" src="_images/enablepxgridnotifications2.png" />
+</div></blockquote>
+</li>
+<li><p class="first">Select the check box(es) for the notifications that DXL clients should be
+allowed to receive. To enable clients to receive all pxGrid notifications,
+select the <code class="docutils literal"><span class="pre">All</span> <span class="pre">Notifications</span></code> check box.</p>
+<blockquote>
+<div><img alt="_images/enablepxgridnotifications3.png" src="_images/enablepxgridnotifications3.png" />
+</div></blockquote>
+</li>
+</ol>
+<ol class="arabic" start="7">
+<li><p class="first">Click the <strong>Save</strong> button in the lower right corner (as shown in the image
+above)</p>
+<blockquote>
+<div><img alt="_images/enablepxgridnotifications4.png" src="_images/enablepxgridnotifications4.png" />
+</div></blockquote>
+</li>
+</ol>
+<p>The notification settings will propagate to the DXL brokers. This process can
+take several minutes to complete.</p>
 </div>
 
 
@@ -71,15 +99,15 @@ with the
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="index.html"
-                        title="previous chapter">Cisco pxGrid DXL Client Library</a></p>
+  <p class="topless"><a href="pxgridauth.html"
+                        title="previous chapter">Authorize Client to Use Cisco pxGrid via DXL</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="installation.html"
-                        title="next chapter">Library Installation</a></p>
+  <p class="topless"><a href="basicancapplyendpointpolicybyipexample.html"
+                        title="next chapter">Basic Apply ANC Endpoint Policy by IP Address Example</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/overview.rst.txt"
+      <li><a href="_sources/pxgridnotifications.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -107,10 +135,10 @@ with the
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="installation.html" title="Library Installation"
+          <a href="basicancapplyendpointpolicybyipexample.html" title="Basic Apply ANC Endpoint Policy by IP Address Example"
              >next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Cisco pxGrid DXL Client Library"
+          <a href="pxgridauth.html" title="Authorize Client to Use Cisco pxGrid via DXL"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">Cisco pxGrid DXL Client Library 0.1.0 documentation</a> &#187;</li> 
       </ul>
