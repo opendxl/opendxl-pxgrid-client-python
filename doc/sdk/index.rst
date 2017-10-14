@@ -27,6 +27,7 @@ Configuration
 
     sampleconfig
     pxgridauth
+    pxgridnotifications
 
 Basic
 

@@ -14,6 +14,8 @@ Prerequisites
   pxGrid.
 * The Python client has been authorized to receive
   ``DXL Cisco pxGrid Notifications`` (see :doc:`pxgridauth`).
+* ANC ``Create Policy`` notifications from pxGrid have been enabled (see
+  :doc:`pxgridnotifications`).
 
 Running
 *******
@@ -90,7 +92,7 @@ The majority of the sample code is shown below:
 
 Once a connection is established to the DXL fabric, a
 :class:`dxlciscopxgridclient.client.CiscoPxGridClient` instance is created which
-will be used to invoke remote commands via Cisco pxGrid.
+will be used to integrate with Cisco pxGrid.
 
 Next, the
 :meth:`dxlciscopxgridclient.client.AncClientCategory.add_create_policy_callback`
