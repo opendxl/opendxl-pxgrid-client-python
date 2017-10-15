@@ -21,7 +21,7 @@ through the process for enabling notifications from the ePO web interface:
 
     .. image:: enablepxgridnotifications3.png
 
-7. Click the **Save** button in the lower right corner (as shown in the image
+4. Click the **Save** button in the lower right corner (as shown in the image
    above)
 
     .. image:: enablepxgridnotifications4.png
