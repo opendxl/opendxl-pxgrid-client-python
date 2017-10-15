@@ -5,9 +5,9 @@
 ## Overview
 
 The Cisco pxGrid DXL Python client library provides a high level wrapper for
-invoking
+integrating
 [Cisco pxGrid](https://www.cisco.com/c/en/us/products/security/pxgrid.html)
-via the
+with the
 [Data Exchange Layer](http://www.mcafee.com/us/solutions/data-exchange-layer.aspx) (DXL)
 fabric.
 

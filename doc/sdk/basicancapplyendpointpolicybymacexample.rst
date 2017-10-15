@@ -116,7 +116,7 @@ The majority of the sample code is shown below:
 
 Once a connection is established to the DXL fabric, a
 :class:`dxlciscopxgridclient.client.CiscoPxGridClient` instance is created which
-will be used to invoke remote commands via Cisco pxGrid.
+will be used to integrate with Cisco pxGrid.
 
 Next, the :meth:`dxlciscopxgridclient.client.AncClientCategory.apply_endpoint_policy_by_mac`
 method is invoked with the MAC address of the endpoint for which to apply the
