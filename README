@@ -7,14 +7,14 @@ Overview
 The Cisco pxGrid DXL client library provides a high level wrapper for
 communicating with
 `Cisco pxGrid <https://www.cisco.com/c/en/us/products/security/pxgrid.html>`_
-via the [Data Exchange Layer](http://www.mcafee.com/us/solutions/data-exchange-layer.aspx)
+via the `Data Exchange Layer <http://www.mcafee.com/us/solutions/data-exchange-layer.aspx>`_
 (DXL) fabric.
 
 Documentation
 -------------
 
 See the
-`GitHub Wiki<https://github.com/opendxl/opendxl-pxgrid-client-python/wiki>`_
+`GitHub Wiki <https://github.com/opendxl/opendxl-pxgrid-client-python/wiki>`_
 for an overview of the Cisco pxGrid DXL Python Client Library and examples.
 
 See the
