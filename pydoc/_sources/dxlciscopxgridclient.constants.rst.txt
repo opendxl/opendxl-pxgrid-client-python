@@ -1,5 +1,5 @@
-dxlciscopxgridclient.constants module
-=====================================
+dxlciscopxgridclient\.constants module
+======================================
 
 .. automodule:: dxlciscopxgridclient.constants
     :members:

@@ -1,16 +1,13 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>dxlciscopxgridclient.callbacks module &#8212; Cisco pxGrid DXL Client Library 0.1.0 documentation</title>
-    
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
@@ -29,7 +26,7 @@
     <link rel="next" title="dxlciscopxgridclient.client module" href="dxlciscopxgridclient.client.html" />
     <link rel="prev" title="dxlciscopxgridclient package" href="dxlciscopxgridclient.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -71,7 +68,7 @@ when an apply endpoint policy event is received.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>apply_dict</strong> (<em>dict</em>) &#8211; <p>Payload for the event notification. For
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>apply_dict</strong> (<em>dict</em>) – <p>Payload for the event notification. For
 example, the value for an event sent on application of an endpoint
 policy should look similar to this:</p>
 <div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -97,7 +94,7 @@ instead of this method in order to process the event payload as a
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>event</strong> (<em>dxlclient.message.Event</em>) &#8211; Message received for the event
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>event</strong> (<em>dxlclient.message.Event</em>) – Message received for the event
 notification</td>
 </tr>
 </tbody>
@@ -120,7 +117,7 @@ when a clear endpoint policy event is received.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>clear_dict</strong> (<em>dict</em>) &#8211; <p>Payload for the event notification. For
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>clear_dict</strong> (<em>dict</em>) – <p>Payload for the event notification. For
 example, the value for an event sent on clearing of an endpoint
 policy should look similar to this:</p>
 <div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -145,7 +142,7 @@ instead of this method in order to process the event payload as a
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>event</strong> (<em>dxlclient.message.Event</em>) &#8211; Message received for the event
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>event</strong> (<em>dxlclient.message.Event</em>) – Message received for the event
 notification</td>
 </tr>
 </tbody>
@@ -168,7 +165,7 @@ clear policy event is received.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>create_dict</strong> (<em>dict</em>) &#8211; <p>Payload for the event notification. For
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>create_dict</strong> (<em>dict</em>) – <p>Payload for the event notification. For
 example, the value for an event sent on creation of a policy should
 look similar to this:</p>
 <div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -193,7 +190,7 @@ order to process the event payload as a <cite>dict</cite>.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>event</strong> (<em>dxlclient.message.Event</em>) &#8211; Message received for the event
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>event</strong> (<em>dxlclient.message.Event</em>) – Message received for the event
 notification</td>
 </tr>
 </tbody>
@@ -216,7 +213,7 @@ when a delete policy event is received.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>delete_dict</strong> (<em>dict</em>) &#8211; <p>Payload for the event notification. For
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>delete_dict</strong> (<em>dict</em>) – <p>Payload for the event notification. For
 example, the value for an event sent on deletion of a policy should
 look similar to this:</p>
 <div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -241,7 +238,7 @@ order to process the event payload as a <cite>dict</cite>.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>event</strong> (<em>dxlclient.message.Event</em>) &#8211; Message received for the event
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>event</strong> (<em>dxlclient.message.Event</em>) – Message received for the event
 notification</td>
 </tr>
 </tbody>
@@ -266,7 +263,7 @@ order to process the event payload as a <cite>dict</cite>.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>event</strong> (<em>dxlclient.message.Event</em>) &#8211; Message received for the event
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>event</strong> (<em>dxlclient.message.Event</em>) – Message received for the event
 notification</td>
 </tr>
 </tbody>
@@ -281,7 +278,7 @@ notification</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>update_dict</strong> (<em>dict</em>) &#8211; <p>Payload for the event notification. For
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>update_dict</strong> (<em>dict</em>) – <p>Payload for the event notification. For
 example, the value for an event sent on update of a policy should
 look similar to this:</p>
 <div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -314,7 +311,7 @@ to process the event payload as a <cite>dict</cite>.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>event</strong> (<em>dxlclient.message.Event</em>) &#8211; Message received for the event
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>event</strong> (<em>dxlclient.message.Event</em>) – Message received for the event
 notification</td>
 </tr>
 </tbody>
@@ -329,7 +326,7 @@ notification</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session_dict</strong> (<em>dict</em>) &#8211; <p>Payload for the event notification. For
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>session_dict</strong> (<em>dict</em>) – <p>Payload for the event notification. For
 example, the value for an event sent on start of a session should
 look similar to this:</p>
 <div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -369,8 +366,8 @@ look similar to this:</p>
 </pre></div>
 </div>
 <p>The value for the event sent on disconnection of a session should
-look similar to the above, except with the &#8220;state&#8221; element set to
-&#8220;Disconnected&#8221;, rather than &#8220;Started&#8221;.</p>
+look similar to the above, except with the “state” element set to
+“Disconnected”, rather than “Started”.</p>
 </td>
 </tr>
 </tbody>
@@ -435,7 +432,7 @@ look similar to the above, except with the &#8220;state&#8221; element set to
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017 McAfee LLC.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
     </div>
   </body>
 </html>
