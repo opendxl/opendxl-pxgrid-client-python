@@ -201,7 +201,7 @@ The majority of the sample code is shown below:
 
 Once a connection is established to the DXL fabric, a
 :class:`dxlciscopxgridclient.client.CiscoPxGridClient` instance is created which
-will be used to integrate with Cisco pxGrid.
+will be used to communicate with Cisco pxGrid.
 
 Next, the
 :meth:`dxlciscopxgridclient.client.IdentityClientCategory.add_session_callback`

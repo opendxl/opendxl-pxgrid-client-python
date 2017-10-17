@@ -107,7 +107,7 @@ The majority of the sample code is shown below:
 
 Once a connection is established to the DXL fabric, a
 :class:`dxlciscopxgridclient.client.CiscoPxGridClient` instance is created which
-will be used to integrate with Cisco pxGrid.
+will be used to communicate with Cisco pxGrid.
 
 Next, the :meth:`dxlciscopxgridclient.client.EpsClientCategory.send_mitigation_action_by_ip`
 method is invoked with the IP address of the endpoint and a mitigation action,
