@@ -97,7 +97,7 @@ The majority of the sample code is shown below:
 
 Once a connection is established to the DXL fabric, a
 :class:`dxlciscopxgridclient.client.CiscoPxGridClient` instance is created which
-will be used to integrate with Cisco pxGrid.
+will be used to communicate with Cisco pxGrid.
 
 Next, the :meth:`dxlciscopxgridclient.client.AncClientCategory.retrieve_policy_by_name`
 method is invoked with the name of the policy for which to retrieve information,
