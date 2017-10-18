@@ -21,7 +21,7 @@ dist = setup(
 
     # Requirements
     install_requires=[
-        "dxlbootstrap",
+        "dxlbootstrap>=0.1.3",
         "dxlclient"
     ],
 
@@ -37,7 +37,11 @@ dist = setup(
     # Packages
     packages=[
         "dxlciscopxgridclient",
-    ],
+        "dxlciscopxgridclient._config",
+        "dxlciscopxgridclient._config.sample"],
+
+    package_data={
+        "dxlciscopxgridclient._config.sample" : ['*']},
 
     # Details
     url="http://www.mcafee.com",
