@@ -9,12 +9,6 @@ from distutils.archive_util import make_archive
 # Run clean
 import clean
 
-
-def remove_dist_files(directory):
-    for f in os.listdir(directory):
-        if f.lower().endswith(".dist"):
-            os.remove(os.path.join(directory, f))
-
 print("Starting dist.\n")
 
 VERSION = __import__('dxlciscopxgridclient').get_version()
@@ -86,7 +80,6 @@ run_setup(SETUP_PY,
 
 print("\nCopying sample into dist directory\n")
 copy_tree(os.path.join(DIST_PY_FILE_LOCATION, "sample"), SAMPLE_RELEASE_DIR)
-remove_dist_files(SAMPLE_RELEASE_DIR)
 
 print("\nCopying dist to " + DIST_RELEASE_DIR + "\n")
 copy_tree(DIST_DIRECTORY, DIST_RELEASE_DIR)
