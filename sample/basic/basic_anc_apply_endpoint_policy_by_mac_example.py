@@ -45,10 +45,10 @@ with DxlClient(config) as dxl_client:
 
         # Print out the response (convert dictionary to JSON for pretty
         # printing)
-        print(("Response:\n{0}".format(
-            MessageUtils.dict_to_json(resp_dict, pretty_print=True))))
+        print("Response:\n{0}".format(
+            MessageUtils.dict_to_json(resp_dict, pretty_print=True)))
     except Exception as ex:
         # An exception should be raised if the 'quarantine_policy' has already
         # been applied to the endpoint or the 'quarantine_policy' has not been
         # created.
-        print((str(ex)))
+        print(str(ex))

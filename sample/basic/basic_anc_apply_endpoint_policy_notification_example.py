@@ -38,8 +38,8 @@ with DxlClient(config) as dxl_client:
 
     class MyAncApplyEndpointPolicyCallback(AncApplyEndpointPolicyCallback):
         def on_apply_endpoint_policy(self, apply_dict):
-            print(("on_apply_endpoint_policy\n" +
-                  MessageUtils.dict_to_json(apply_dict, pretty_print=True)))
+            print("on_apply_endpoint_policy\n" +
+                  MessageUtils.dict_to_json(apply_dict, pretty_print=True))
 
     # Attach callback for 'apply policy' events
     client.anc.add_apply_endpoint_policy_callback(

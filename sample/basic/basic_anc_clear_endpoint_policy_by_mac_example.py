@@ -43,9 +43,9 @@ with DxlClient(config) as dxl_client:
 
         # Print out the response (convert dictionary to JSON for pretty
         # printing)
-        print(("Response:\n{0}".format(
-            MessageUtils.dict_to_json(resp_dict, pretty_print=True))))
+        print("Response:\n{0}".format(
+            MessageUtils.dict_to_json(resp_dict, pretty_print=True)))
     except Exception as ex:
         # An exception would be raised if a policy has not already been
         # associated with the endpoint.
-        print((str(ex)))
+        print(str(ex))
