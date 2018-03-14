@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+from __future__ import print_function
 import os
 import sys
 import time
@@ -36,8 +38,8 @@ with DxlClient(config) as dxl_client:
 
     class MyIdentitySessionCallback(IdentitySessionCallback):
         def on_session(self, session_dict):
-            print("on_session\n" +
-                  MessageUtils.dict_to_json(session_dict, pretty_print=True))
+            print(("on_session\n" +
+                  MessageUtils.dict_to_json(session_dict, pretty_print=True)))
 
     # Attach callback for session events
     client.identity.add_session_callback(MyIdentitySessionCallback())

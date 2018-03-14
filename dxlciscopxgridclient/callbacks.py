@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 from dxlbootstrap.util import MessageUtils
 from dxlclient.callbacks import EventCallback
 

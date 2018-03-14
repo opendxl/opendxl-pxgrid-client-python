@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+from __future__ import print_function
 import os
 import sys
 import time
@@ -36,8 +38,8 @@ with DxlClient(config) as dxl_client:
 
     class MyAncUpdatePolicyCallback(AncUpdatePolicyCallback):
         def on_update_policy(self, update_dict):
-            print("on_update_policy\n" +
-                  MessageUtils.dict_to_json(update_dict, pretty_print=True))
+            print(("on_update_policy\n" +
+                  MessageUtils.dict_to_json(update_dict, pretty_print=True)))
 
     # Attach callback for 'update policy' events
     client.anc.add_update_policy_callback(MyAncUpdatePolicyCallback())

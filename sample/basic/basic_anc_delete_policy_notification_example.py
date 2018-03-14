@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+from __future__ import print_function
 import os
 import sys
 import time
@@ -36,8 +38,8 @@ with DxlClient(config) as dxl_client:
 
     class MyAncDeletePolicyCallback(AncDeletePolicyCallback):
         def on_delete_policy(self, delete_dict):
-            print("on_delete_policy\n" +
-                  MessageUtils.dict_to_json(delete_dict, pretty_print=True))
+            print(("on_delete_policy\n" +
+                  MessageUtils.dict_to_json(delete_dict, pretty_print=True)))
 
     # Attach callback for 'delete policy' events
     client.anc.add_delete_policy_callback(MyAncDeletePolicyCallback())

@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+from __future__ import print_function
 import os
 import sys
 import time
@@ -36,8 +38,8 @@ with DxlClient(config) as dxl_client:
 
     class MyAncClearEndpointPolicyCallback(AncClearEndpointPolicyCallback):
         def on_clear_endpoint_policy(self, clear_dict):
-            print("on_clear_endpoint_policy\n" +
-                  MessageUtils.dict_to_json(clear_dict, pretty_print=True))
+            print(("on_clear_endpoint_policy\n" +
+                  MessageUtils.dict_to_json(clear_dict, pretty_print=True)))
 
     # Attach callback for 'clear policy' events
     client.anc.add_clear_endpoint_policy_callback(

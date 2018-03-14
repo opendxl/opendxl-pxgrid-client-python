@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+from __future__ import print_function
 import os
 from distutils.dir_util import remove_tree
 from shutil import copyfile
@@ -5,7 +7,7 @@ from shutil import copyfile
 
 def clean_dir(src_dir, directory):
     if os.path.exists(directory):
-        print("Cleaning directory: " + directory + "\n")
+        print(("Cleaning directory: " + directory + "\n"))
         for f in os.listdir(directory):
             if not os.path.isdir(os.path.join(directory, f)) and not f.lower().endswith(".py"):
                 os.remove(os.path.join(directory, f))
@@ -24,7 +26,7 @@ SAMPLE_SRC_DIRECTORY = os.path.join(DIST_PY_FILE_LOCATION, "dxlciscopxgridclient
 
 # Remove the dist directory if it exists
 if os.path.exists(DIST_DIRECTORY):
-    print("Removing dist directory: " + DIST_DIRECTORY + "\n")
+    print(("Removing dist directory: " + DIST_DIRECTORY + "\n"))
     remove_tree(DIST_DIRECTORY, verbose=1)
 
 # Clean the config directory
