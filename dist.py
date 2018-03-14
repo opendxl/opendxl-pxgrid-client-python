@@ -2,6 +2,8 @@ from __future__ import absolute_import
 from __future__ import print_function
 import os
 import subprocess
+
+# pylint: disable=no-name-in-module, import-error
 from distutils.dir_util import copy_tree, remove_tree
 from distutils.file_util import copy_file, move_file
 from distutils.core import run_setup
@@ -9,7 +11,7 @@ from distutils.archive_util import make_archive
 
 
 # Run clean
-import clean
+import clean # pylint: disable=unused-import
 
 print("Starting dist.\n")
 
@@ -26,10 +28,10 @@ SAMPLE_RELEASE_DIR = os.path.join(DIST_DIRECTORY, "sample")
 
 # Remove the dist directory if it exists
 if os.path.exists(DIST_DIRECTORY):
-    print(("\nRemoving dist directory: " + DIST_DIRECTORY + "\n"))
+    print("\nRemoving dist directory: " + DIST_DIRECTORY + "\n")
     remove_tree(DIST_DIRECTORY, verbose=1)
 
-print(("\nMaking dist directory: " + DIST_DIRECTORY + "\n"))
+print("\nMaking dist directory: " + DIST_DIRECTORY + "\n")
 os.makedirs(DIST_DIRECTORY)
 
 print("\nCalling sphinx-apidoc\n")
@@ -41,11 +43,13 @@ subprocess.check_call(["sphinx-apidoc",
                        os.path.join(DIST_PY_FILE_LOCATION, "dxlciscopxgridclient")])
 
 print("\nCopying conf.py and sdk directory\n")
-copy_file(os.path.join(DIST_PY_FILE_LOCATION, "doc", "conf.py"), os.path.join(DIST_DOCTMP_DIR, "conf.py"))
+copy_file(os.path.join(DIST_PY_FILE_LOCATION, "doc", "conf.py"),
+          os.path.join(DIST_DOCTMP_DIR, "conf.py"))
 copy_tree(os.path.join(DIST_PY_FILE_LOCATION, "doc", "sdk"), DIST_DOCTMP_DIR)
 
 print("\nCalling sphinx-build\n")
-subprocess.check_call(["sphinx-build", "-b", "html", DIST_DOCTMP_DIR, os.path.join(DIST_DIRECTORY, "doc")])
+subprocess.check_call(["sphinx-build", "-b", "html", DIST_DOCTMP_DIR,
+                       os.path.join(DIST_DIRECTORY, "doc")])
 
 # Delete .doctrees
 remove_tree(os.path.join(os.path.join(DIST_DIRECTORY, "doc"), ".doctrees"), verbose=1)
@@ -66,24 +70,17 @@ run_setup(SETUP_PY,
            "--dist-dir",
            DIST_LIB_DIRECTORY])
 
-print("\nRunning setup.py bdist_egg\n")
-run_setup(SETUP_PY,
-          ["bdist_egg",
-           "--dist-dir",
-           DIST_LIB_DIRECTORY])
-
 print("\nRunning setup.py bdist_wheel\n")
 run_setup(SETUP_PY,
           ["bdist_wheel",
            "--dist-dir",
            DIST_LIB_DIRECTORY,
-           "--python-tag",
-           "py2.7"])
+           "--universal"])
 
 print("\nCopying sample into dist directory\n")
 copy_tree(os.path.join(DIST_PY_FILE_LOCATION, "sample"), SAMPLE_RELEASE_DIR)
 
-print(("\nCopying dist to " + DIST_RELEASE_DIR + "\n"))
+print("\nCopying dist to " + DIST_RELEASE_DIR + "\n")
 copy_tree(DIST_DIRECTORY, DIST_RELEASE_DIR)
 
 print("\nRemoving build directory\n")
@@ -95,5 +92,5 @@ remove_tree(os.path.join(DIST_PY_FILE_LOCATION, "dxlciscopxgridclient.egg-info")
 print("\nMaking dist zip\n")
 make_archive(DIST_RELEASE_DIR, "zip", DIST_DIRECTORY, RELEASE_NAME)
 
-print(("\nRemoving " + DIST_RELEASE_DIR + "\n"))
+print("\nRemoving " + DIST_RELEASE_DIR + "\n")
 remove_tree(DIST_RELEASE_DIR)
