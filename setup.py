@@ -31,7 +31,12 @@ class LintCommand(Command):
     def run(self):
         self.announce("Running pylint for library source files and tests",
                       level=distutils.log.INFO)
-        subprocess.check_call(["pylint", "dxlciscopxgridclient"] + glob.glob("*.py"))
+        subprocess.check_call(["pylint", "dxlciscopxgridclient"] +
+                              glob.glob("*.py"))
+        self.announce("Running pylint for samples", level=distutils.log.INFO)
+        subprocess.check_call(["pylint"] + glob.glob("sample/*.py") +
+                              glob.glob("sample/**/*.py") +
+                              ["--rcfile", ".pylintrc.samples"])
 
 
 class CiCommand(Command):
