@@ -42,9 +42,11 @@ subprocess.check_call(["sphinx-apidoc",
                        "--output-dir=" + DIST_DOCTMP_DIR,
                        os.path.join(DIST_PY_FILE_LOCATION, "dxlciscopxgridclient")])
 
-print("\nCopying conf.py and sdk directory\n")
+print("\nCopying conf.py, docutils.conf, and sdk directory\n")
 copy_file(os.path.join(DIST_PY_FILE_LOCATION, "doc", "conf.py"),
           os.path.join(DIST_DOCTMP_DIR, "conf.py"))
+copy_file(os.path.join(DIST_PY_FILE_LOCATION, "doc", "docutils.conf"),
+          os.path.join(DIST_DOCTMP_DIR, "docutils.conf"))
 copy_tree(os.path.join(DIST_PY_FILE_LOCATION, "doc", "sdk"), DIST_DOCTMP_DIR)
 
 print("\nCalling sphinx-build\n")
