@@ -31,7 +31,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = "Cisco pxGrid DXL Client Library"
-copyright = "2017 McAfee LLC"
+copyright = "2018 McAfee LLC"
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
