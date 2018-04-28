@@ -2,6 +2,8 @@ from __future__ import absolute_import
 from __future__ import print_function
 import os
 import subprocess
+from tempfile import mkstemp
+from shutil import move
 
 # pylint: disable=no-name-in-module, import-error
 from distutils.dir_util import copy_tree, remove_tree
@@ -12,6 +14,19 @@ from distutils.archive_util import make_archive
 
 # Run clean
 import clean # pylint: disable=unused-import
+
+def replace(file_path, pattern, subst):
+    # Create temp file
+    fh, abs_path = mkstemp()
+    with open(abs_path, 'w') as new_file:
+        with open(file_path) as old_file:
+            for line in old_file:
+                new_file.write(line.replace(pattern, subst))
+    os.close(fh)
+    # Remove original file
+    os.remove(file_path)
+    # Move new file
+    move(abs_path, file_path)
 
 print("Starting dist.\n")
 
@@ -52,6 +67,9 @@ copy_tree(os.path.join(DIST_PY_FILE_LOCATION, "doc", "sdk"), DIST_DOCTMP_DIR)
 print("\nCalling sphinx-build\n")
 subprocess.check_call(["sphinx-build", "-b", "html", DIST_DOCTMP_DIR,
                        os.path.join(DIST_DIRECTORY, "doc")])
+
+replace(os.path.join(DIST_DIRECTORY, "doc", "_static", "classic.css"),
+        "text-align: justify", "text-align: none")
 
 # Delete .doctrees
 remove_tree(os.path.join(os.path.join(DIST_DIRECTORY, "doc"), ".doctrees"), verbose=1)
