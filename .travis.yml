@@ -7,6 +7,9 @@ services:
 
 python:
   - "2.7"
+  - "3.4"
+  - "3.5"
+  - "3.6"
 
 before_install:
   - docker pull opendxl/opendxl-broker
@@ -15,15 +18,15 @@ before_install:
 
 # command to install dependencies
 install:
-  - pip install dxlclient
-  - pip install .
+  - pip install .[test]
+  # Install through setup.py should be redundant because of the preceding pip
+  # install. Just doing this to try to catch any high-level errors.
+  - python setup.py install
 
 before_script:
-  - python -m dxlclient provisionconfig dxlclient/test 127.0.0.1 client -u admin -p password
-  - cp dxlclient/test/dxlclient.config dxlclient/test/client_config.cfg
-  - sed -i -e "s/external/unique_broker_id_1/g" -e "/local/d" dxlclient/test/client_config.cfg
-  - cat dxlclient/test/client_config.cfg
+  - python -m dxlclient provisionconfig sample 127.0.0.1 client -u admin -p password
+  - cat sample/dxlclient.config
 
 # command to run tests
 script:
-  - python setup.py install
+  - python setup.py ci
