@@ -1,5 +1,5 @@
-dxlciscopxgridclient\.client module
-===================================
+dxlciscopxgridclient.client module
+==================================
 
 .. automodule:: dxlciscopxgridclient.client
     :members:

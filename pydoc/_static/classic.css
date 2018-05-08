@@ -4,7 +4,7 @@
  *
  * Sphinx stylesheet -- classic theme.
  *
- * :copyright: Copyright 2007-2017 by the Sphinx team, see AUTHORS.
+ * :copyright: Copyright 2007-2018 by the Sphinx team, see AUTHORS.
  * :license: BSD, see LICENSE for details.
  *
  */
@@ -170,7 +170,7 @@ a.headerlink:hover {
 }
 
 div.body p, div.body dd, div.body li, div.body blockquote {
-    text-align: justify;
+    text-align: none;
     line-height: 130%;
 }
 

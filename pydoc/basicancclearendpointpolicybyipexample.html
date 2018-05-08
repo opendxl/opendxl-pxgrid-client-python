@@ -4,20 +4,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Basic Clear ANC Endpoint Policy by IP Address Example &#8212; Cisco pxGrid DXL Client Library 0.1.2 documentation</title>
+    <title>Basic Clear ANC Endpoint Policy by IP Address Example &#8212; Cisco pxGrid DXL Client Library 0.2.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.1.2',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
@@ -25,8 +17,7 @@
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Basic Clear ANC Endpoint Policy by MAC Address Example" href="basicancclearendpointpolicybymacexample.html" />
     <link rel="prev" title="Basic Apply ANC Endpoint Policy Notification Example" href="basicancapplyendpointpolicynotificationexample.html" /> 
-  </head>
-  <body>
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -42,7 +33,7 @@
         <li class="right" >
           <a href="basicancapplyendpointpolicynotificationexample.html" title="Basic Apply ANC Endpoint Policy Notification Example"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Cisco pxGrid DXL Client Library 0.1.2 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Cisco pxGrid DXL Client Library 0.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -62,7 +53,7 @@ address.</p>
 <li>The samples configuration step has been completed (see <a class="reference internal" href="sampleconfig.html"><span class="doc">Samples Configuration</span></a>).</li>
 <li>The DXL fabric to which the client will connect has been bridged to Cisco
 pxGrid.</li>
-<li>The Python client has been authorized to perform <code class="docutils literal"><span class="pre">DXL</span> <span class="pre">Cisco</span> <span class="pre">pxGrid</span> <span class="pre">Queries</span></code>
+<li>The Python client has been authorized to perform <code class="docutils literal notranslate"><span class="pre">DXL</span> <span class="pre">Cisco</span> <span class="pre">pxGrid</span> <span class="pre">Queries</span></code>
 (see <a class="reference internal" href="pxgridauth.html"><span class="doc">Authorize Client to Use Cisco pxGrid via DXL</span></a>).</li>
 <li>Run through the steps in the <a class="reference internal" href="basicancapplyendpointpolicybyipexample.html"><span class="doc">Basic Apply ANC Endpoint Policy by IP Address Example</span></a>
 to apply a policy to an endpoint. A run of this example can then clear the
@@ -73,14 +64,14 @@ policy.</li>
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <p>Update the following line in the sample:</p>
 <blockquote>
-<div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">HOST_IP</span> <span class="o">=</span> <span class="s2">&quot;&lt;SPECIFY_IP_ADDRESS&gt;&quot;</span>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">HOST_IP</span> <span class="o">=</span> <span class="s2">&quot;&lt;SPECIFY_IP_ADDRESS&gt;&quot;</span>
 </pre></div>
 </div>
 </div></blockquote>
 <p>To specify the IP address of a endpoint for which to clear the policy. For
 example:</p>
 <blockquote>
-<div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">HOST_IP</span> <span class="o">=</span> <span class="s2">&quot;192.168.1.1&quot;</span>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">HOST_IP</span> <span class="o">=</span> <span class="s2">&quot;192.168.1.1&quot;</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -88,17 +79,17 @@ example:</p>
 <div class="section" id="running">
 <h2>Running<a class="headerlink" href="#running" title="Permalink to this headline">¶</a></h2>
 <p>To run this sample execute the
-<code class="docutils literal"><span class="pre">sample/basic/basic_anc_clear_endpoint_policy_by_ip_example.py</span></code> script as
+<code class="docutils literal notranslate"><span class="pre">sample/basic/basic_anc_clear_endpoint_policy_by_ip_example.py</span></code> script as
 follows:</p>
 <blockquote>
-<div><div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">sample</span><span class="o">/</span><span class="n">basic</span><span class="o">/</span><span class="n">basic_anc_clear_endpoint_policy_by_ip_example</span><span class="o">.</span><span class="n">py</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">sample</span><span class="o">/</span><span class="n">basic</span><span class="o">/</span><span class="n">basic_anc_clear_endpoint_policy_by_ip_example</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
 </div></blockquote>
 <p>If the policy can be cleared successfully, the output should appear similar to
 the following:</p>
 <blockquote>
-<div><div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;ancStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span>
 <span class="p">}</span>
 </pre></div>
@@ -106,10 +97,10 @@ the following:</p>
 </div></blockquote>
 <p>The received results are displayed.</p>
 <p>If no policy has already been associated with the endpoint before the example
-is run, an <code class="docutils literal"><span class="pre">Exception</span></code> is raised and output similar to the following should
+is run, an <code class="docutils literal notranslate"><span class="pre">Exception</span></code> is raised and output similar to the following should
 appear:</p>
 <blockquote>
-<div><div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Error</span><span class="p">:</span> <span class="n">mac</span> <span class="n">address</span> <span class="ow">is</span> <span class="n">already</span> <span class="n">associated</span> <span class="k">with</span> <span class="n">this</span> <span class="n">policy</span> <span class="n">error</span> <span class="n">associated</span> <span class="k">with</span> <span class="n">ip</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.1</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span><span class="p">:</span> <span class="n">mac</span> <span class="n">address</span> <span class="ow">is</span> <span class="n">already</span> <span class="n">associated</span> <span class="k">with</span> <span class="n">this</span> <span class="n">policy</span> <span class="n">error</span> <span class="n">associated</span> <span class="k">with</span> <span class="n">ip</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.1</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -118,7 +109,7 @@ appear:</p>
 <h2>Details<a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
 <p>The majority of the sample code is shown below:</p>
 <blockquote>
-<div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># IP address of the endpoint for which to clear the policy</span>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># IP address of the endpoint for which to clear the policy</span>
 <span class="n">HOST_IP</span> <span class="o">=</span> <span class="s2">&quot;&lt;SPECIFY_IP_ADDRESS&gt;&quot;</span>
 
 <span class="c1"># Create the client</span>
@@ -148,12 +139,12 @@ appear:</p>
 </div>
 </div></blockquote>
 <p>Once a connection is established to the DXL fabric, a
-<a class="reference internal" href="dxlciscopxgridclient.client.html#dxlciscopxgridclient.client.CiscoPxGridClient" title="dxlciscopxgridclient.client.CiscoPxGridClient"><code class="xref py py-class docutils literal"><span class="pre">dxlciscopxgridclient.client.CiscoPxGridClient</span></code></a> instance is created which
+<a class="reference internal" href="dxlciscopxgridclient.client.html#dxlciscopxgridclient.client.CiscoPxGridClient" title="dxlciscopxgridclient.client.CiscoPxGridClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">dxlciscopxgridclient.client.CiscoPxGridClient</span></code></a> instance is created which
 will be used to communicate with Cisco pxGrid.</p>
-<p>Next, the <a class="reference internal" href="dxlciscopxgridclient.client.html#dxlciscopxgridclient.client.AncClientCategory.clear_endpoint_policy_by_ip" title="dxlciscopxgridclient.client.AncClientCategory.clear_endpoint_policy_by_ip"><code class="xref py py-meth docutils literal"><span class="pre">dxlciscopxgridclient.client.AncClientCategory.clear_endpoint_policy_by_ip()</span></code></a>
+<p>Next, the <a class="reference internal" href="dxlciscopxgridclient.client.html#dxlciscopxgridclient.client.AncClientCategory.clear_endpoint_policy_by_ip" title="dxlciscopxgridclient.client.AncClientCategory.clear_endpoint_policy_by_ip"><code class="xref py py-meth docutils literal notranslate"><span class="pre">dxlciscopxgridclient.client.AncClientCategory.clear_endpoint_policy_by_ip()</span></code></a>
 method is invoked with the IP address of the endpoint for which to clear the
 policy.</p>
-<p>The final step is to display the contents of the returned dictionary (<code class="docutils literal"><span class="pre">dict</span></code>)
+<p>The final step is to display the contents of the returned dictionary (<code class="docutils literal notranslate"><span class="pre">dict</span></code>)
 which contains the results of the attempt to clear the policy from the endpoint.</p>
 </div>
 </div>
@@ -190,12 +181,14 @@ which contains the results of the attempt to clear the policy from the endpoint.
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -217,12 +210,12 @@ which contains the results of the attempt to clear the policy from the endpoint.
         <li class="right" >
           <a href="basicancapplyendpointpolicynotificationexample.html" title="Basic Apply ANC Endpoint Policy Notification Example"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Cisco pxGrid DXL Client Library 0.1.2 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Cisco pxGrid DXL Client Library 0.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2017 McAfee LLC.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
+        &#169; Copyright 2018 McAfee LLC.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
     </div>
   </body>
 </html>
