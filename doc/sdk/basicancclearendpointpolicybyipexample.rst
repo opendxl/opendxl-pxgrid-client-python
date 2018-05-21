@@ -55,13 +55,12 @@ the following:
 
 The received results are displayed.
 
-If no policy has already been associated with the endpoint before the example
-is run, an ``Exception`` is raised and output similar to the following should
-appear:
+If no policy been associated with the endpoint before the example is run, an
+``Exception`` is raised and output similar to the following should appear:
 
     .. parsed-literal::
 
-        Error: mac address is already associated with this policy error associated with ip 192.168.1.1 (0)
+        Error: mac address is not associated with a policy error associated with ip 192.168.1.1 (0)
 
 Details
 *******
