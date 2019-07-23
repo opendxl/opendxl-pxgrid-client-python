@@ -101,16 +101,19 @@ The majority of the sample code is shown below:
             client = CiscoPxGridClient(dxl_client)
 
             try:
-                # Invoke 'get endpoint by MAC' method on service
-                resp_dict = client.anc.get_endpoint_by_mac(HOST_MAC)
+                # Invoke 'apply endpoint policy by MAC' method on service
+                resp_dict = client.anc.apply_endpoint_policy_by_mac(
+                    HOST_MAC,
+                    "quarantine_policy")
 
                 # Print out the response (convert dictionary to JSON for pretty
                 # printing)
                 print("Response:\n{0}".format(
                     MessageUtils.dict_to_json(resp_dict, pretty_print=True)))
             except Exception as ex:
-                # An exception should be raised if a policy has not already been
-                # associated with the endpoint.
+                # An exception should be raised if the 'quarantine_policy' has already
+                # been applied to the endpoint or the 'quarantine_policy' has not been
+                # created.
                 print(str(ex))
 
 
