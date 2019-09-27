@@ -53,7 +53,10 @@ class CiCommand(Command):
     def run(self):
         self.run_command("lint")
 
-TEST_REQUIREMENTS = ["pylint"]
+TEST_REQUIREMENTS = [
+    "astroid<=2.2.5",
+    "pylint"
+]
 
 DEV_REQUIREMENTS = TEST_REQUIREMENTS + ["sphinx"]
 
