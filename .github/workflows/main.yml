@@ -1,0 +1,50 @@
+
+name: Build
+
+on: 
+  push:
+    branches:
+      - master
+  pull_request:
+  schedule:
+    - cron:  '0 0 * * *'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [2.7, 3.5, 3.6, 3.7]
+      fail-fast: false
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+      with:
+        submodules: recursive
+        
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}        
+                
+    - name: Install broker
+      run: |
+        docker pull opendxl/opendxl-broker
+        docker run -d -p 8883:8883 -p 8443:8443 -p 443:443 opendxl/opendxl-broker
+        docker ps -a
+              
+    - name: Install dependencies
+      run: |
+        pip install --upgrade pip	
+        pip install --upgrade pipenv  
+        pip install wheel
+        pip install .[test]
+        python setup.py install
+
+    - name: Execute CI
+      run: |
+        python -m dxlclient provisionconfig sample 127.0.0.1 client -u admin -p password
+        cat sample/dxlclient.config
+        python setup.py ci
