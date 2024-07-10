@@ -2,7 +2,6 @@ from __future__ import absolute_import
 from __future__ import print_function
 import os
 import sys
-import time
 
 from dxlbootstrap.util import MessageUtils
 from dxlclient.client_config import DxlClientConfig
@@ -13,7 +12,6 @@ sys.path.append(root_dir + "/../..")
 sys.path.append(root_dir + "/..")
 
 from dxlciscopxgridclient.client import CiscoPxGridClient
-from dxlciscopxgridclient.callbacks import AncClearEndpointPolicyCallback
 
 # Import common logging and configuration
 from common import *
@@ -31,21 +29,15 @@ with DxlClient(config) as dxl_client:
     # Connect to the fabric
     dxl_client.connect()
 
-    logger.info("Connected to DXL fabric.")
+    print("Connected to DXL fabric.", flush=True)
 
     # Create client wrapper
     client = CiscoPxGridClient(dxl_client)
 
-    class MyAncClearEndpointPolicyCallback(AncClearEndpointPolicyCallback):
-        def on_clear_endpoint_policy(self, clear_dict):
-            print("on_clear_endpoint_policy\n" +
-                  MessageUtils.dict_to_json(clear_dict, pretty_print=True))
+    # Invoke 'get operation status'
+    resp_dict = client.anc.get_operation_status("1")
 
-    # Attach callback for 'clear policy' events
-    client.anc.add_clear_endpoint_policy_callback(
-        MyAncClearEndpointPolicyCallback())
-
-    # Wait forever
-    print("Waiting for clear policy events...")
-    while True:
-        time.sleep(60)
+    # Print out the response (convert dictionary to JSON for pretty
+    # printing)
+    print("Response:\n{0}".format(
+        MessageUtils.dict_to_json(resp_dict, pretty_print=True)))

@@ -29,7 +29,7 @@ with DxlClient(config) as dxl_client:
     # Connect to the fabric
     dxl_client.connect()
 
-    logger.info("Connected to DXL fabric.")
+    print("Connected to DXL fabric.", flush=True)
 
     # Create client wrapper
     client = CiscoPxGridClient(dxl_client)

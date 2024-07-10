@@ -2,7 +2,6 @@ from __future__ import absolute_import
 from __future__ import print_function
 import os
 import sys
-import time
 
 from dxlbootstrap.util import MessageUtils
 from dxlclient.client_config import DxlClientConfig
@@ -13,7 +12,6 @@ sys.path.append(root_dir + "/../..")
 sys.path.append(root_dir + "/..")
 
 from dxlciscopxgridclient.client import CiscoPxGridClient
-from dxlciscopxgridclient.callbacks import AncDeletePolicyCallback
 
 # Import common logging and configuration
 from common import *
@@ -24,6 +22,9 @@ logger = logging.getLogger(__name__)
 
 # Create DXL configuration from file
 config = DxlClientConfig.create_dxl_config_from_file(CONFIG_FILE)
+
+HOST_MAC = "<INSERT_MAC_HERE>"
+nas_ip_address = "<INSERT_IP_HERE>"
 
 # Create the client
 with DxlClient(config) as dxl_client:
@@ -36,15 +37,13 @@ with DxlClient(config) as dxl_client:
     # Create client wrapper
     client = CiscoPxGridClient(dxl_client)
 
-    class MyAncDeletePolicyCallback(AncDeletePolicyCallback):
-        def on_delete_policy(self, delete_dict):
-            print("on_delete_policy\n" +
-                  MessageUtils.dict_to_json(delete_dict, pretty_print=True))
+    try:
+        # Invoke 'get endpoint by nas ip' method
+        resp_dict = client.anc.get_endpoint_by_nas_ip_address(HOST_MAC, nas_ip_address)
 
-    # Attach callback for 'delete policy' events
-    client.anc.add_delete_policy_callback(MyAncDeletePolicyCallback())
-
-    # Wait forever
-    print("Waiting for delete policy events...")
-    while True:
-        time.sleep(60)
+        # Print out the response (convert dictionary to JSON for pretty
+        # printing)
+        print("Response:\n{0}".format(
+            MessageUtils.dict_to_json(resp_dict, pretty_print=True)))
+    except Exception as ex:
+        print(str(ex))

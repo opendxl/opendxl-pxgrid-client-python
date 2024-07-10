@@ -24,7 +24,7 @@ logger = logging.getLogger(__name__)
 config = DxlClientConfig.create_dxl_config_from_file(CONFIG_FILE)
 
 # IP address of the endpoint for which to apply the policy
-HOST_IP = "<SPECIFY_IP_ADDRESS>"
+HOST_IP = "<INSERT_IP_HERE>"
 
 # Create the client
 with DxlClient(config) as dxl_client:
@@ -40,14 +40,11 @@ with DxlClient(config) as dxl_client:
     try:
         # Invoke 'apply endpoint policy by IP' method on service
         resp_dict = client.anc.apply_endpoint_policy_by_ip(HOST_IP,
-                                                           "quarantine_policy")
+                                                           "ANC_Shut")
 
         # Print out the response (convert dictionary to JSON for pretty
         # printing)
         print("Response:\n{0}".format(
             MessageUtils.dict_to_json(resp_dict, pretty_print=True)))
     except Exception as ex:
-        # An exception should be raised if the 'quarantine_policy' has already
-        # been applied to the endpoint, the 'quarantine_policy' has not been
-        # created, or if no session has been established for the endpoint.
         print(str(ex))

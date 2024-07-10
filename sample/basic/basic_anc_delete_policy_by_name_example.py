@@ -12,7 +12,6 @@ sys.path.append(root_dir + "/../..")
 sys.path.append(root_dir + "/..")
 
 from dxlciscopxgridclient.client import CiscoPxGridClient
-from dxlciscopxgridclient.constants import EpsAction
 
 # Import common logging and configuration
 from common import *
@@ -21,11 +20,12 @@ from common import *
 logging.getLogger().setLevel(logging.ERROR)
 logger = logging.getLogger(__name__)
 
+# Configure local logger
+logging.getLogger().setLevel(logging.ERROR)
+logger = logging.getLogger(__name__)
+
 # Create DXL configuration from file
 config = DxlClientConfig.create_dxl_config_from_file(CONFIG_FILE)
-
-# IP address of the endpoint for which to send the mitigation action
-HOST_IP = "<SPECIFY_IP_ADDRESS>"
 
 # Create the client
 with DxlClient(config) as dxl_client:
@@ -39,15 +39,12 @@ with DxlClient(config) as dxl_client:
     client = CiscoPxGridClient(dxl_client)
 
     try:
-        # Invoke 'send mitigation action by IP' method on service
-        resp_dict = client.eps.send_mitigation_action_by_ip(
-            HOST_IP,
-            EpsAction.QUARANTINE)
+        # Invoke 'delete policy by name' method
+        resp_dict = client.anc.delete_policy_by_name("ANC_Shut_2")
 
         # Print out the response (convert dictionary to JSON for pretty
         # printing)
         print("Response:\n{0}".format(
             MessageUtils.dict_to_json(resp_dict, pretty_print=True)))
     except Exception as ex:
-        # An exception should be raised if no session exists for the endpoint.
         print(str(ex))

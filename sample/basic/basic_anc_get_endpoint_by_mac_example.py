@@ -24,7 +24,7 @@ logger = logging.getLogger(__name__)
 config = DxlClientConfig.create_dxl_config_from_file(CONFIG_FILE)
 
 # MAC address of the endpoint for which to get information
-HOST_MAC = "<SPECIFY_MAC_ADDRESS>"
+HOST_MAC = "<INSERT_MAC_HERE>"
 
 # Create the client
 with DxlClient(config) as dxl_client:
@@ -46,6 +46,4 @@ with DxlClient(config) as dxl_client:
         print("Response:\n{0}".format(
             MessageUtils.dict_to_json(resp_dict, pretty_print=True)))
     except Exception as ex:
-        # An exception should be raised if a policy has not already been
-        # associated with the endpoint.
         print(str(ex))

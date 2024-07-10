@@ -36,7 +36,7 @@ with DxlClient(config) as dxl_client:
 
     try:
         # Invoke 'retrieve policy by name' method on service
-        resp_dict = client.anc.retrieve_policy_by_name("quarantine_policy")
+        resp_dict = client.anc.retrieve_policy_by_name("ANC_Bounce")
 
         # Print out the response (convert dictionary to JSON for pretty
         # printing)
