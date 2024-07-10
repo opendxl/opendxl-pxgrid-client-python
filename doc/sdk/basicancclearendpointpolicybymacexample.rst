@@ -50,13 +50,14 @@ the following:
     .. code-block:: json
 
         {
-            "ancStatus": "success"
+            "macAddress": "00:11:22:33:44:55",
+            "operationId": "cise.psarchlab.com:158",
+            "status": "SUCCESS"
         }
 
 The received results are displayed.
 
-If no policy has been associated with the endpoint before the example is run, an
-``Exception`` is raised and output similar to the following should appear:
+If no policy has been associated with the endpoint before the example is run, output similar to the following should appear:
 
     .. parsed-literal::
 
@@ -92,8 +93,6 @@ The majority of the sample code is shown below:
                 print("Response:\n{0}".format(
                     MessageUtils.dict_to_json(resp_dict, pretty_print=True)))
             except Exception as ex:
-                # An exception would be raised if a policy has not already been
-                # associated with the endpoint.
                 print(str(ex))
 
 

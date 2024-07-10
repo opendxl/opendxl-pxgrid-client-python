@@ -1,11 +1,11 @@
-Basic Apply ANC Endpoint Policy by IP Address Example
-=====================================================
+Basic Apply ANC Endpoint Policy Example
+======================================================
 
 .. include:: <isonum.txt>
 
 This sample applies a Cisco Adaptive Network Control (ANC) policy to an
-endpoint via DXL and Cisco pxGrid. The sample identifies the endpoint by its IP
-address.
+endpoint via DXL and Cisco pxGrid. The sample identifies the endpoint by its
+MAC address, NAS IP address and other parameters.
 
 Prerequisites
 *************
@@ -15,14 +15,9 @@ Prerequisites
   pxGrid.
 * The Python client has been authorized to perform ``DXL Cisco pxGrid Queries``
   (see :doc:`pxgridauth`).
-* A session has been established with the Cisco Identity Services Engine (ISE)
-  server for an endpoint. The endpoint's IP address will be used when running
-  this example. For an example on creating a simulated session for testing, see
-  the Cisco RADIUS Simulator command examples in
-  :doc:`basicidentitysessionnotificationexample`.
 * An ANC policy named ``ANC_Shut`` has been configured. The policy
-  could be created by logging into the ISE web interface and performing the
-  following steps:
+  could be created by logging into the Cisco Identity Services Engine (ISE) web
+  interface and performing the following steps:
 
     * Navigate to **Operations** |rarr| **Adaptive Network Control** |rarr|
       **Policy List**.
@@ -34,37 +29,37 @@ Prerequisites
 Configuration
 *************
 
-Update the following line in the sample:
+Update the following lines in the sample:
 
     .. code-block:: python
 
-        HOST_IP = "<SPECIFY_IP_ADDRESS>"
+        MAC_ADDRESS = "<INSERT_MAC_HERE>"
+        NAS_IP_ADDRESS = "<INSERT_NAS_IP_HERE>"
+        SESSION_ID = "<INSERT_SESSIONID_HERE>"
+        NAS_PORT_ID = None # "<OPTIONAL INSERT HERE>"
+        IP_ADDRESS = None # "<OPTIONAL INSERT HERE>"
+        USERNAME = None # "<OPTIONAL INSERT HERE>"
 
-To specify the IP address of an endpoint for which to apply the
-``ANC_Shut``. For example:
-
-    .. code-block:: python
-
-        HOST_IP = "192.168.1.1"
+Note that the last 3 lines are optional parameters.
 
 Running
 *******
 
 To run this sample execute the
-``sample/basic/basic_anc_apply_endpoint_policy_by_ip_example.py`` script as
+``sample/basic/basic_anc_apply_endpoint_policy.py`` script as
 follows:
 
     .. parsed-literal::
 
-        python sample/basic/basic_anc_apply_endpoint_policy_by_ip_example.py
+        python sample/basic/basic_anc_apply_endpoint_policy.py
 
 If the policy can be applied successfully, the output should appear similar to
 the following:
 
     .. code-block:: json
-
+      
         {
-            "ipAddress": "192.168.1.1",
+            "macAddress": "00:11:22:33:44:55",
             "operationId": "cise.psarchlab.com:149",
             "policyName": "ANC_Shut",
             "status": "SUCCESS"
@@ -73,26 +68,18 @@ the following:
 The received results are displayed.
 
 If the ``ANC_Shut`` has already been associated with the endpoint
-before the example is run, output similar
-to the following should appear:
+before the example is run, output similar to the
+following should appear:
 
     .. parsed-literal::
 
-        Error: mac address is already associated with this policy error associated with ip 192.168.1.1 (0)
+        Error: mac address is already associated with this policy error associated with mac 00:11:22:33:44:55 (0)
 
-If the ``ANC_Shut`` has not been defined before the example is run, output similar to the following should
-appear:
-
-    .. parsed-literal::
-
-        Error: Policy is not configured error associated with ip 192.168.1.1 (0)
-
-If no session has been established for an endpoint which corresponds to the IP, output similar to the following
-should appear:
+If the ``ANC_Shut`` has not been defined before the example is run, output similar to the following should appear:
 
     .. parsed-literal::
 
-        Error: Session lookup failure error associated with ip 192.168.1.1 (0)
+        Error: Policy is not configured error associated with mac 00:11:22:33:44:55 (0)
 
 Details
 *******
@@ -101,8 +88,12 @@ The majority of the sample code is shown below:
 
     .. code-block:: python
 
-        # IP address of the endpoint for which to apply the policy
-        HOST_IP = "<SPECIFY_IP_ADDRESS>"
+        MAC_ADDRESS = "<INSERT_MAC_HERE>"
+        NAS_IP_ADDRESS = "<INSERT_NAS_IP_HERE>"
+        SESSION_ID = "<INSERT_SESSIONID_HERE>"
+        NAS_PORT_ID = "<OPTIONAL INSERT HERE>"
+        IP_ADDRESS = "<OPTIONAL INSERT HERE>"
+        USERNAME = "<OPTIONAL INSERT HERE>"
 
         # Create the client
         with DxlClient(config) as dxl_client:
@@ -116,9 +107,8 @@ The majority of the sample code is shown below:
             client = CiscoPxGridClient(dxl_client)
 
             try:
-                # Invoke 'apply endpoint policy by IP' method on service
-                resp_dict = client.anc.apply_endpoint_policy_by_ip(HOST_IP,
-                                                                  "ANC_Shut")
+                # Invoke 'retrieve policy by name' method on service
+                resp_dict = client.anc.apply_endpoint_policy("ANC_Shut", MAC_ADDRESS, NAS_IP_ADDRESS, NAS_PORT_ID, IP_ADDRESS, USERNAME)
 
                 # Print out the response (convert dictionary to JSON for pretty
                 # printing)
@@ -132,8 +122,8 @@ Once a connection is established to the DXL fabric, a
 :class:`dxlciscopxgridclient.client.CiscoPxGridClient` instance is created which
 will be used to communicate with Cisco pxGrid.
 
-Next, the :meth:`dxlciscopxgridclient.client.AncClientCategory.apply_endpoint_policy_by_ip`
-method is invoked with the IP address of the endpoint for which to apply the
+Next, the :meth:`dxlciscopxgridclient.client.AncClientCategory.apply_endpoint_policy`
+method is invoked with the endpoint information for which to apply the
 ``ANC_Shut``.
 
 The final step is to display the contents of the returned dictionary (``dict``)
