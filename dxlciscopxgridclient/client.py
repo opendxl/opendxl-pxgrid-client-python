@@ -173,7 +173,7 @@ class AncClientCategory(_BaseClientCategory):
         request = Request(self._ANC_RETRIEVE_ALL_POLICIES)
         return MessageUtils.json_payload_to_dict(
             self._pxgrid_client._dxl_sync_request(request))
-    
+
     def retrieve_policy_by_name(self, policy_name):
         """
         Retrieve information for an ANC policy by name.
@@ -203,8 +203,8 @@ class AncClientCategory(_BaseClientCategory):
             {_PARAM_POLICY_NAME_2: policy_name})
         return MessageUtils.json_payload_to_dict(
             self._pxgrid_client._dxl_sync_request(request))
-    
-    def create_policy(self, name: str, actions: list[str]):
+
+    def create_policy(self, name: str, actions: list):
         """
         Creates a policy object
 
@@ -224,7 +224,7 @@ class AncClientCategory(_BaseClientCategory):
         )
         return MessageUtils.json_payload_to_dict(
             self._pxgrid_client._dxl_sync_request(request))
-    
+
     def delete_policy_by_name(self, name):
         """
         Deletes a policy object with the name provided
@@ -236,9 +236,8 @@ class AncClientCategory(_BaseClientCategory):
         MessageUtils.dict_to_json_payload(
             request, {_PARAM_POLICY_NAME_2: name}
         )
-        return MessageUtils.json_payload_to_dict(
-            self._pxgrid_client._dxl_sync_request(request))
-    
+        return MessageUtils.json_payload_to_dict(self._pxgrid_client._dxl_sync_request(request))
+
     def get_endpoints(self):
         """
         Gets all endpoints with policies applied
@@ -248,7 +247,7 @@ class AncClientCategory(_BaseClientCategory):
         request = Request(self._ANC_GET_ENDPOINTS)
         return MessageUtils.json_payload_to_dict(
             self._pxgrid_client._dxl_sync_request(request))
-    
+
     def get_endpoint_policies(self):
         """
         Gets all endpoints with policies applied using both MAC address and NAS IP address
@@ -256,9 +255,8 @@ class AncClientCategory(_BaseClientCategory):
         :return: {"endpoints" : list[str]}
         """
         request = Request(self._ANC_GET_ENDPOINT_POLICIES)
-        return MessageUtils.json_payload_to_dict(
-            self._pxgrid_client._dxl_sync_request(request))
-    
+        return MessageUtils.json_payload_to_dict(self._pxgrid_client._dxl_sync_request(request))
+
     def get_endpoint_by_mac(self, mac_address):
         """
         Get information for an endpoint by its MAC address.
@@ -278,12 +276,12 @@ class AncClientCategory(_BaseClientCategory):
         """
         request = Request(self._ANC_GET_ENDPOINT_BY_MAC)
         MessageUtils.dict_to_json_payload(request, {_PARAM_MAC: mac_address})
-        return MessageUtils.json_payload_to_dict(
-            self._pxgrid_client._dxl_sync_request(request))
+        return MessageUtils.json_payload_to_dict(self._pxgrid_client._dxl_sync_request(request))
 
     def get_endpoint_by_nas_ip_address(self, mac_address: str, nas_ip_address: str):
         """
-        Get endpoint with MAC address and NAS IP Address If endpoint does not exist, no content is returned
+        Get endpoint with MAC address and NAS IP Address If endpoint does not exist,
+        no content is returned
 
         :param str mac_address: MAC address of endpoint
         :param str nas_ip_address: nas_ip_address of endpoint
@@ -294,8 +292,7 @@ class AncClientCategory(_BaseClientCategory):
         MessageUtils.dict_to_json_payload(request, {
             _PARAM_MAC: mac_address,
             _PARAM_NAS_IP: nas_ip_address})
-        return MessageUtils.json_payload_to_dict(
-            self._pxgrid_client._dxl_sync_request(request))
+        return MessageUtils.json_payload_to_dict(self._pxgrid_client._dxl_sync_request(request))
 
     def apply_endpoint_policy_by_ip(self, ip_address, policy_name):
         """
@@ -311,9 +308,8 @@ class AncClientCategory(_BaseClientCategory):
             request,
             {_PARAM_IP: ip_address, _PARAM_POLICY_NAME: policy_name}
         )
-        return MessageUtils.json_payload_to_dict(
-            self._pxgrid_client._dxl_sync_request(request))
-    
+        return MessageUtils.json_payload_to_dict(self._pxgrid_client._dxl_sync_request(request))
+
     def apply_endpoint_policy_by_mac(self, mac_address, policy_name):
         """
         Apply a policy to an endpoint by its MAC address.
@@ -337,9 +333,8 @@ class AncClientCategory(_BaseClientCategory):
             request,
             {_PARAM_MAC: mac_address,
              _PARAM_POLICY_NAME: policy_name})
-        return MessageUtils.json_payload_to_dict(
-            self._pxgrid_client._dxl_sync_request(request))
-    
+        return MessageUtils.json_payload_to_dict(self._pxgrid_client._dxl_sync_request(request))
+
     def clear_endpoint_policy_by_mac(self, mac_address):
         """
         Clear the policy for an endpoint by its MAC address.
@@ -362,11 +357,10 @@ class AncClientCategory(_BaseClientCategory):
             request,
             {_PARAM_MAC: mac_address}
         )
-        return MessageUtils.json_payload_to_dict(
-            self._pxgrid_client._dxl_sync_request(request))
+        return MessageUtils.json_payload_to_dict(self._pxgrid_client._dxl_sync_request(request))
 
-    def apply_endpoint_policy(self, policy: str, mac_address: str, nas_ip_address: str, 
-                              sessionId: str=None, nas_port_id: str=None, ip_address: str=None, username: str=None):
+    def apply_endpoint_policy(self, policy: str, mac_address: str, nas_ip_address: str,
+                              session_id: str, nas_port_id: str, ip_address: str, username: str):
         """
         Apply a policy to the endpoint using MAC Address, NAS IP Address and other parameters
         If endpoint does not have an existing policy applied, the return status will be FAILURE
@@ -375,11 +369,11 @@ class AncClientCategory(_BaseClientCategory):
         :param str policy: policy name
         :param str mac_address: MAC address of endpoint
         :param str nas_ip_address: NAS Ip address of endpoint
-        :param str sessionId (optional): id of session
+        :param str session_id (optional): id of session
         :param str nas_port_id (optional): port of NAS
         :param str ip_address (optional): ip address of endpoint
         :param str username (optional): username
-        
+
         :return: status object
         :rtype: dict
         """
@@ -390,15 +384,14 @@ class AncClientCategory(_BaseClientCategory):
                 'policy': policy,
                 _PARAM_MAC: mac_address,
                 _PARAM_NAS_IP: nas_ip_address,
-                'sessionId': sessionId if sessionId is not None else None,
+                'sessionId': session_id if session_id is not None else None,
                 'nasPortId': nas_port_id if nas_port_id is not None else None,
                 _PARAM_IP: ip_address if ip_address is not None else None,
-                'userName': username if username is not None else None         
+                'userName': username if username is not None else None
             }
         )
-        return MessageUtils.json_payload_to_dict(
-            self._pxgrid_client._dxl_sync_request(request))
-    
+        return MessageUtils.json_payload_to_dict(self._pxgrid_client._dxl_sync_request(request))
+
     def clear_endpoint_policy(self, mac_address: str, nas_ip_address: str):
         """
         Clear endpoint policy by MAC address and NAS IP address
@@ -412,10 +405,9 @@ class AncClientCategory(_BaseClientCategory):
         MessageUtils.dict_to_json_payload(
             request,
             {_PARAM_MAC: mac_address, _PARAM_NAS_IP: nas_ip_address})
-        return MessageUtils.json_payload_to_dict(
-            self._pxgrid_client._dxl_sync_request(request))   
+        return MessageUtils.json_payload_to_dict(self._pxgrid_client._dxl_sync_request(request))
 
-    def get_operation_status(self, operationId: str):
+    def get_operation_status(self, operation_id: str):
         """
         If operation does not exist, HTTP status "204 No content" will be returned.
 
@@ -426,9 +418,8 @@ class AncClientCategory(_BaseClientCategory):
         request = Request(self._ANC_GET_OPERATION_STATUS)
         MessageUtils.dict_to_json_payload(
             request,
-            {_PARAM_OPERATION_ID: operationId})
-        return MessageUtils.json_payload_to_dict(
-            self._pxgrid_client._dxl_sync_request(request))
+            {_PARAM_OPERATION_ID: operation_id})
+        return MessageUtils.json_payload_to_dict(self._pxgrid_client._dxl_sync_request(request))
 
     ### NOTIFICATIONS
     def add_anc_status_callback(self, callback):
@@ -438,5 +429,4 @@ class AncClientCategory(_BaseClientCategory):
         :param dxlciscopxgridclient.callbacks.AncCallback callback:
             The callback to register.
         """
-        self._pxgrid_client._dxl_client.add_event_callback(
-            self._ANC_EVENT_STATUS, callback)
+        self._pxgrid_client._dxl_client.add_event_callback(self._ANC_EVENT_STATUS, callback)

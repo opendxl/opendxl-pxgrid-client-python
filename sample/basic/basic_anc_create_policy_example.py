@@ -40,7 +40,7 @@ with DxlClient(config) as dxl_client:
 
     try:
         # Invoke 'create policy'
-        resp_dict = client.anc.create_policy("ANC_Shut_2",["SHUT_DOWN"])
+        resp_dict = client.anc.create_policy("ANC_Shut_2", ["SHUT_DOWN"])
 
         # Print out the response (convert dictionary to JSON for pretty
         # printing)

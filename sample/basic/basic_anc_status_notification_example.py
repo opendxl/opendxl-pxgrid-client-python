@@ -39,19 +39,19 @@ with DxlClient(config) as dxl_client:
     client = CiscoPxGridClient(dxl_client)
 
     class MyAncNotificationCallback(AncStatusCallback):
-        def _on_status_notification(self, apply_dict):
-            if 'content' in apply_dict:
-                content = apply_dict['content']
+        def _on_status_notification(self, status_dict):
+            if 'content' in status_dict:
+                content = status_dict['content']
                 if isinstance(content, str):
                     try:
                         decoded_content = base64.b64decode(content).decode('utf-8')
-                        apply_dict['content'] = json.loads(decoded_content)
+                        status_dict['content'] = json.loads(decoded_content)
                     except (TypeError, base64.binascii.Error) as e:
                         print(f"Error decoding content: {e}")
                 else:
                     print("Content is not a string, cannot decode.")
             print("anc_status_notification\n" +
-                MessageUtils.dict_to_json(apply_dict, pretty_print=True) + '\n')
+                  MessageUtils.dict_to_json(status_dict, pretty_print=True) + '\n')
 
     # Attach callback for 'apply policy' events
     client.anc.add_anc_status_callback(

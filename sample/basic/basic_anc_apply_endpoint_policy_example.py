@@ -47,7 +47,9 @@ with DxlClient(config) as dxl_client:
 
     try:
         # Invoke 'retrieve policy by name' method on service
-        resp_dict = client.anc.apply_endpoint_policy("ANC_Shut", MAC_ADDRESS, NAS_IP_ADDRESS, NAS_PORT_ID, IP_ADDRESS, USERNAME)
+        resp_dict = client.anc.apply_endpoint_policy("ANC_Shut", MAC_ADDRESS, NAS_IP_ADDRESS,
+                                                     SESSION_ID, NAS_PORT_ID, IP_ADDRESS,
+                                                     USERNAME)
 
         # Print out the response (convert dictionary to JSON for pretty
         # printing)

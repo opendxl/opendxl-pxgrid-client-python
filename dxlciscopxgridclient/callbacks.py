@@ -26,7 +26,9 @@ class AncStatusCallback(EventCallback):
 
             {
                 "command": "MESSAGE",
-                "content": "eyJvcGVyYXRpb25JZCI6ImNpc2UucHNhcmNobGFiLmNvbToxMDYiLCJtYWNBZGRyZXNzIjoiMDI6QjU6NDc6RTI6MEU6NzMiLCJzdGF0dXMiOiJTVUNDRVNTIiwicG9saWN5TmFtZSI6IkFOQ19TaHV0In0=",
+                "content": "eyJvcGVyYXRpb25JZCI6ImNpc2UucHNhcmNobGFiLmNvbToxMDYiLCJtYW\
+                            NBZGRyZXNzIjoiMDI6QjU6NDc6RTI6MEU6NzMiLCJzdGF0dXMiOiJTVUNDR\
+                            VNTIiwicG9saWN5TmFtZSI6IkFOQ19TaHV0In0=",
                 "headers": {
                     "content-length": "116",
                     "destination": "/topic/com.cisco.ise.config.anc.status",
@@ -34,7 +36,7 @@ class AncStatusCallback(EventCallback):
                     "subscription": "1"
                 }
             }
-        
+
             where the content is the base64 encoded content of the event. The content
             after being decoded and json.loads()-ed will be similar to this format:
 
@@ -45,11 +47,13 @@ class AncStatusCallback(EventCallback):
                 "status": "SUCCESS"
             }
 
-            Note, policyName is not required for all events and just a status and endpoint
+            PolicyName is not required for all events and just a status and endpoint
             identifier can be present.
-            See https://github.com/cisco-pxgrid/pxgrid-rest-ws/wiki/ANC-configuration#objects for more information
+            https://github.com/cisco-pxgrid/pxgrid-rest-ws/wiki/ANC-configuration#objects
+            for more information
 
-        See the example _on_status_notification() handler in basic_anc_status_notification_example.py
+        See the example _on_status_notification() handler in
+        basic_anc_status_notification_example.py
         for a simple handler that decodes and json.loads().
         """
         pass
