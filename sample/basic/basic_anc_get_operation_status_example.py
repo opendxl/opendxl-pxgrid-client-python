@@ -23,29 +23,21 @@ logger = logging.getLogger(__name__)
 # Create DXL configuration from file
 config = DxlClientConfig.create_dxl_config_from_file(CONFIG_FILE)
 
-# IP address of the endpoint for which to clear the policy
-HOST_IP = "<SPECIFY_IP_ADDRESS>"
-
 # Create the client
 with DxlClient(config) as dxl_client:
 
     # Connect to the fabric
     dxl_client.connect()
 
-    logger.info("Connected to DXL fabric.")
+    print("Connected to DXL fabric.", flush=True)
 
     # Create client wrapper
     client = CiscoPxGridClient(dxl_client)
 
-    try:
-        # Invoke 'clear endpoint policy by IP' method on service
-        resp_dict = client.anc.clear_endpoint_policy_by_ip(HOST_IP)
+    # Invoke 'get operation status'
+    resp_dict = client.anc.get_operation_status("1")
 
-        # Print out the response (convert dictionary to JSON for pretty
-        # printing)
-        print("Response:\n{0}".format(
-            MessageUtils.dict_to_json(resp_dict, pretty_print=True)))
-    except Exception as ex:
-        # An exception should be raised if a policy has not already been
-        # associated with the endpoint.
-        print(str(ex))
+    # Print out the response (convert dictionary to JSON for pretty
+    # printing)
+    print("Response:\n{0}".format(
+        MessageUtils.dict_to_json(resp_dict, pretty_print=True)))

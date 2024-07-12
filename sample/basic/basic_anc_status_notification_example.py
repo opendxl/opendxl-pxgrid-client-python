@@ -1,5 +1,7 @@
 from __future__ import absolute_import
 from __future__ import print_function
+import base64
+import json
 import os
 import sys
 import time
@@ -13,7 +15,7 @@ sys.path.append(root_dir + "/../..")
 sys.path.append(root_dir + "/..")
 
 from dxlciscopxgridclient.client import CiscoPxGridClient
-from dxlciscopxgridclient.callbacks import AncApplyEndpointPolicyCallback
+from dxlciscopxgridclient.callbacks import AncStatusCallback
 
 # Import common logging and configuration
 from common import *
@@ -36,16 +38,26 @@ with DxlClient(config) as dxl_client:
     # Create client wrapper
     client = CiscoPxGridClient(dxl_client)
 
-    class MyAncApplyEndpointPolicyCallback(AncApplyEndpointPolicyCallback):
-        def on_apply_endpoint_policy(self, apply_dict):
-            print("on_apply_endpoint_policy\n" +
-                  MessageUtils.dict_to_json(apply_dict, pretty_print=True))
+    class MyAncNotificationCallback(AncStatusCallback):
+        def _on_status_notification(self, status_dict):
+            if 'content' in status_dict:
+                content = status_dict['content']
+                if isinstance(content, str):
+                    try:
+                        decoded_content = base64.b64decode(content).decode('utf-8')
+                        status_dict['content'] = json.loads(decoded_content)
+                    except (TypeError, base64.binascii.Error) as e:
+                        print(f"Error decoding content: {e}")
+                else:
+                    print("Content is not a string, cannot decode.")
+            print("anc_status_notification\n" +
+                  MessageUtils.dict_to_json(status_dict, pretty_print=True) + '\n')
 
     # Attach callback for 'apply policy' events
-    client.anc.add_apply_endpoint_policy_callback(
-        MyAncApplyEndpointPolicyCallback())
+    client.anc.add_anc_status_callback(
+        MyAncNotificationCallback())
 
     # Wait forever
-    print("Waiting for apply policy events...")
+    print("Waiting for anc status events...")
     while True:
         time.sleep(60)

@@ -2,7 +2,6 @@ from __future__ import absolute_import
 from __future__ import print_function
 import os
 import sys
-import time
 
 from dxlbootstrap.util import MessageUtils
 from dxlclient.client_config import DxlClientConfig
@@ -13,10 +12,13 @@ sys.path.append(root_dir + "/../..")
 sys.path.append(root_dir + "/..")
 
 from dxlciscopxgridclient.client import CiscoPxGridClient
-from dxlciscopxgridclient.callbacks import AncCreatePolicyCallback
 
 # Import common logging and configuration
 from common import *
+
+# Configure local logger
+logging.getLogger().setLevel(logging.ERROR)
+logger = logging.getLogger(__name__)
 
 # Configure local logger
 logging.getLogger().setLevel(logging.ERROR)
@@ -36,15 +38,13 @@ with DxlClient(config) as dxl_client:
     # Create client wrapper
     client = CiscoPxGridClient(dxl_client)
 
-    class MyAncCreatePolicyCallback(AncCreatePolicyCallback):
-        def on_create_policy(self, create_dict):
-            print("on_create_policy\n" +
-                  MessageUtils.dict_to_json(create_dict, pretty_print=True))
+    try:
+        # Invoke 'create policy'
+        resp_dict = client.anc.create_policy("ANC_Shut_2", ["SHUT_DOWN"])
 
-    # Attach callback for 'create policy' events
-    client.anc.add_create_policy_callback(MyAncCreatePolicyCallback())
-
-    # Wait forever
-    print("Waiting for create policy events...")
-    while True:
-        time.sleep(60)
+        # Print out the response (convert dictionary to JSON for pretty
+        # printing)
+        print("Response:\n{0}".format(
+            MessageUtils.dict_to_json(resp_dict, pretty_print=True)))
+    except Exception as ex:
+        print(str(ex))

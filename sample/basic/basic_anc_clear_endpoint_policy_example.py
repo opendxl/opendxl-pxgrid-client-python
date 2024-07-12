@@ -23,8 +23,9 @@ logger = logging.getLogger(__name__)
 # Create DXL configuration from file
 config = DxlClientConfig.create_dxl_config_from_file(CONFIG_FILE)
 
-# IP address of the endpoint for which to get information
-HOST_IP = "<SPECIFY_IP_ADDRESS>"
+# MAC address of the endpoint for which to clear the policy
+HOST_MAC = "<INSERT_MAC_HERE>"
+NAS_IP_ADDRESS = "<INSERT_IP_HERE>"
 
 # Create the client
 with DxlClient(config) as dxl_client:
@@ -38,14 +39,14 @@ with DxlClient(config) as dxl_client:
     client = CiscoPxGridClient(dxl_client)
 
     try:
-        # Invoke 'get endpoint by IP' method on service
-        resp_dict = client.anc.get_endpoint_by_ip(HOST_IP)
+        # Invoke 'clear endpoint policy by MAC' method on service
+        resp_dict = client.anc.clear_endpoint_policy(HOST_MAC, NAS_IP_ADDRESS)
 
         # Print out the response (convert dictionary to JSON for pretty
         # printing)
         print("Response:\n{0}".format(
             MessageUtils.dict_to_json(resp_dict, pretty_print=True)))
     except Exception as ex:
-        # An exception should be raised if a policy has not already been
+        # An exception would be raised if a policy has not already been
         # associated with the endpoint.
         print(str(ex))
