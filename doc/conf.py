@@ -27,7 +27,7 @@ templates_path = ['_templates']
 source_suffix = '.rst'
 
 # The master toctree document.
-master_doc = 'sdk/index'
+master_doc = 'index'
 
 # General information about the project.
 project = "Cisco pxGrid DXL Client Library"
