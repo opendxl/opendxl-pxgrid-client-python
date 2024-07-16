@@ -4,9 +4,9 @@ from dxlbootstrap.util import MessageUtils
 from dxlbootstrap.client import Client
 
 #: The DXL topic for making queries to pxGrid services
-_PXGRID_SERVICE_PREFIX = "/mcafee/service/pxgrid2/"
+_PXGRID_SERVICE_PREFIX = "/mcafee/service/pxgrid/"
 #: The DXL topic for events received from pxGrid services
-_PXGRID_EVENT_PREFIX = "/mcafee/event/pxgrid2/"
+_PXGRID_EVENT_PREFIX = "/mcafee/event/pxgrid/"
 
 #: The IP address parameter
 _PARAM_IP = "ipAddress"
@@ -183,17 +183,17 @@ class AncClientCategory(_BaseClientCategory):
 
             .. code-block:: json
 
-                    {
-                        "ancStatus": "success",
-                        "ancpolicy": [
-                            {
-                                "action": [
-                                    "Quarantine"
-                                ],
-                                "name": "quarantine_policy"
-                            }
-                        ]
-                    }
+                {
+                    "ancStatus": "success",
+                    "ancpolicy": [
+                        {
+                            "action": [
+                                "Quarantine"
+                            ],
+                            "name": "quarantine_policy"
+                        }
+                    ]
+                }
         :rtype: dict
         :raises Exception: If the policy name has not been defined.
         """
@@ -270,6 +270,7 @@ class AncClientCategory(_BaseClientCategory):
                     "macAddress": "00:11:22:33:44:55",
                     "policyName": "ANC_Shut"
                 }
+
             or no content if macAddress not found or has no policies
         :rtype: dict
         :raises Exception: If no policy has been associated with the endpoint.
@@ -320,12 +321,14 @@ class AncClientCategory(_BaseClientCategory):
             successful application, the results should look similar to this:
 
             .. code-block:: json
+
                 {
                     "macAddress": "00:11:22:33:44:55",
                     "operationId": "cise.psarchlab.com:123",
                     "policyName": "ANC_Shut",
                     "status": "SUCCESS"
                 }
+
         :rtype: dict
         """
         request = Request(self._ANC_APPLY_ENDPOINT_POLICY_BY_MAC)
@@ -344,12 +347,14 @@ class AncClientCategory(_BaseClientCategory):
             successful clear attempt, the results should look similar to this:
 
             .. code-block:: json
+
                 {
                     "macAddress": "00:11:22:33:44:55",
                     "operationId": "cise.psarchlab.com:123",
                     "policyName": "ANC_Shut",
                     "status": "SUCCESS"
                 }
+
         :rtype: dict
         """
         request = Request(self._ANC_CLEAR_ENDPOINT_POLICY_BY_MAC)

@@ -27,7 +27,7 @@ templates_path = ['_templates']
 source_suffix = '.rst'
 
 # The master toctree document.
-master_doc = 'sdk/index'
+master_doc = 'index'
 
 # General information about the project.
 project = "Cisco pxGrid DXL Client Library"
@@ -37,8 +37,7 @@ copyright = "2024 Musarubra LLC"
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
-# VERSION = __import__('dxlciscopxgridclient').get_version()
-VERSION = '1.0.0'
+VERSION = __import__('dxlciscopxgridclient').get_version()
 # The short X.Y version.
 version = VERSION
 # The full version, including alpha/beta/rc tags.

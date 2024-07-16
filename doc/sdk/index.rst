@@ -59,11 +59,11 @@ Basic
     basicancstatusnotificationexample
     basicidentitysessionnotificationexample
 
-.. Python API
-.. ----------
+Python API
+----------
 
-.. .. toctree::
-..     :titlesonly:
+.. toctree::
+    :titlesonly:
 
-..     dxlciscopxgridclient
+    dxlciscopxgridclient
 
