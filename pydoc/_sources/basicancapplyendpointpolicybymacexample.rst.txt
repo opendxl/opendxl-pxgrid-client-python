@@ -15,15 +15,15 @@ Prerequisites
   pxGrid.
 * The Python client has been authorized to perform ``DXL Cisco pxGrid Queries``
   (see :doc:`pxgridauth`).
-* An ANC policy named ``quarantine_policy`` has been configured. The policy
+* An ANC policy named ``ANC_Shut`` has been configured. The policy
   could be created by logging into the Cisco Identity Services Engine (ISE) web
   interface and performing the following steps:
 
     * Navigate to **Operations** |rarr| **Adaptive Network Control** |rarr|
       **Policy List**.
     * On the **List** screen, click on the **Add** button.
-    * On the **List** |rarr| **New** screen, enter ``quarantine_policy`` in the
-      **name** field, select ``QUARANTINE`` in the **Action** field, and press
+    * On the **List** |rarr| **New** screen, enter ``ANC_Shut`` in the
+      **name** field, select ``SHUT_DOWN`` in the **Action** field, and press
       the **Submit** button.
 
 Configuration
@@ -36,7 +36,7 @@ Update the following line in the sample:
         HOST_MAC = "<SPECIFY_MAC_ADDRESS>"
 
 To specify the MAC address of an endpoint for which to apply the
-``quarantine_policy``. For example:
+``ANC_Shut``. For example:
 
     .. code-block:: python
 
@@ -59,21 +59,23 @@ the following:
     .. code-block:: json
 
         {
-            "ancStatus": "success"
+            "macAddress": "00:11:22:33:44:55",
+            "operationId": "cise.psarchlab.com:149",
+            "policyName": "ANC_Shut",
+            "status": "SUCCESS"
         }
 
 The received results are displayed.
 
-If the ``quarantine_policy`` has already been associated with the endpoint
-before the example is run, an ``Exception`` is raised and output similar to the
+If the ``ANC_Shut`` has already been associated with the endpoint
+before the example is run, output similar to the
 following should appear:
 
     .. parsed-literal::
 
         Error: mac address is already associated with this policy error associated with mac 00:11:22:33:44:55 (0)
 
-If the ``quarantine_policy`` has not been defined before the example is run, an
-``Exception`` is raised and output similar to the following should appear:
+If the ``ANC_Shut`` has not been defined before the example is run, output similar to the following should appear:
 
     .. parsed-literal::
 
@@ -101,16 +103,16 @@ The majority of the sample code is shown below:
             client = CiscoPxGridClient(dxl_client)
 
             try:
-                # Invoke 'get endpoint by MAC' method on service
-                resp_dict = client.anc.get_endpoint_by_mac(HOST_MAC)
+                # Invoke 'apply endpoint policy by MAC' method on service
+                resp_dict = client.anc.apply_endpoint_policy_by_mac(
+                    HOST_MAC,
+                    "ANC_Shut")
 
                 # Print out the response (convert dictionary to JSON for pretty
                 # printing)
                 print("Response:\n{0}".format(
                     MessageUtils.dict_to_json(resp_dict, pretty_print=True)))
             except Exception as ex:
-                # An exception should be raised if a policy has not already been
-                # associated with the endpoint.
                 print(str(ex))
 
 
@@ -120,8 +122,8 @@ will be used to communicate with Cisco pxGrid.
 
 Next, the :meth:`dxlciscopxgridclient.client.AncClientCategory.apply_endpoint_policy_by_mac`
 method is invoked with the MAC address of the endpoint for which to apply the
-``quarantine_policy``.
+``ANC_Shut``.
 
 The final step is to display the contents of the returned dictionary (``dict``)
-which contains the results of the attempt to apply the ``quarantine_policy``
+which contains the results of the attempt to apply the ``ANC_Shut``
 to the endpoint.

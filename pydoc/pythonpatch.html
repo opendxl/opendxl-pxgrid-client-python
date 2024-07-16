@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>DXL Client Python3.12 Patch &#8212; Cisco pxGrid DXL Client Library 1.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=89b800e6" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=af2ce170"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Samples Configuration" href="sampleconfig.html" />
+    <link rel="prev" title="Library Installation" href="installation.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="sampleconfig.html" title="Samples Configuration"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="Library Installation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Cisco pxGrid DXL Client Library 1.0.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">DXL Client Python3.12 Patch</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="dxl-client-python3-12-patch">
+<h1>DXL Client Python3.12 Patch<a class="headerlink" href="#dxl-client-python3-12-patch" title="Permalink to this heading">¶</a></h1>
+<p>This outlines how to patch the dependencies of the opendxl-python client
+for python3.12</p>
+<section id="basic-virtual-env">
+<h2>Basic virtual env<a class="headerlink" href="#basic-virtual-env" title="Permalink to this heading">¶</a></h2>
+<p>Set up your python virtual environment. Install setuptools using pip.</p>
+</section>
+<section id="edit-collections-init-file">
+<h2>Edit collections init file<a class="headerlink" href="#edit-collections-init-file" title="Permalink to this heading">¶</a></h2>
+<p>In <code class="docutils literal notranslate"><span class="pre">[python_install_path]/collections/_init__.py</span></code>, change:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">collections.abc</span> <span class="k">as</span> <span class="nn">_collections_abc</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl>
+<dt>to:</dt><dd><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">collections</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Callable</span>
+    <span class="n">_collections_abc</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">abc</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Callable</span>
+<span class="kn">import</span> <span class="nn">sys</span> <span class="k">as</span> <span class="nn">_sys</span>
+</pre></div>
+</div>
+<p>This change is made to deal with <cite>_collections_abc</cite> now being held in module <cite>collections.abc</cite>
+but still being referenced as <cite>_collections_abc</cite> frequently in code.</p>
+</dd>
+</dl>
+</section>
+<section id="libcrypto-modification">
+<h2>Libcrypto modification<a class="headerlink" href="#libcrypto-modification" title="Permalink to this heading">¶</a></h2>
+<p>In <code class="docutils literal notranslate"><span class="pre">[python_install_path]/site-packages/oscrypto-1.3.0-py1.12.egg/oscrypto/_openssl/_libscrypto_ctypes.py</span></code>
+change these lines:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">version_match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">b(</span><span class="se">\\</span><span class="s1">d</span><span class="se">\\</span><span class="s1">.</span><span class="se">\\</span><span class="s1">d</span><span class="se">\\</span><span class="s1">.</span><span class="se">\\</span><span class="s1">d[a-z]*)</span><span class="se">\\</span><span class="s1">b&#39;</span><span class="p">,</span> <span class="n">version_string</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">version_match</span><span class="p">:</span>
+    <span class="n">version_match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;(?&lt;=LibreSSL )(</span><span class="se">\\</span><span class="s1">d</span><span class="se">\\</span><span class="s1">.</span><span class="se">\\</span><span class="s1">d(</span><span class="se">\\</span><span class="s1">.</span><span class="se">\\</span><span class="s1">d)?)</span><span class="se">\\</span><span class="s1">b&#39;</span><span class="p">,</span> <span class="n">version_string</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">version_match</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="n">LibraryNotFoundError</span><span class="p">(</span><span class="s1">&#39;Error detecting the version of libcrypto&#39;</span><span class="p">)</span>
+<span class="n">version</span> <span class="o">=</span> <span class="n">version_match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">version_parts</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;(</span><span class="se">\\</span><span class="s1">d)([a-z]+)&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">1.</span><span class="se">\\</span><span class="s1">2&#39;</span><span class="p">,</span> <span class="n">version</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">version_info</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">part</span><span class="p">)</span> <span class="k">if</span> <span class="n">part</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span> <span class="k">else</span> <span class="n">part</span> <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="n">version_parts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl>
+<dt>to:</dt><dd><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">version_match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\b(\d+\.\d+\.\d+[a-z]*)\b&#39;</span><span class="p">,</span> <span class="n">version_string</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">version_match</span><span class="p">:</span>
+    <span class="c1"># Attempt to match LibreSSL version format</span>
+    <span class="n">version_match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(?&lt;=LibreSSL )(\d+\.\d+(\.\d+)?)\b&#39;</span><span class="p">,</span> <span class="n">version_string</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">version_match</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error detecting the version of libcrypto from: </span><span class="si">{</span><span class="n">version_string</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">version</span> <span class="o">=</span> <span class="n">version_match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">version_parts</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\d)([a-z]+)&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\1.\2&#39;</span><span class="p">,</span> <span class="n">version</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">version_info</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">part</span><span class="p">)</span> <span class="k">if</span> <span class="n">part</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span> <span class="k">else</span> <span class="n">part</span> <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="n">version_parts</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>This change is needed to capture the new version output string format of LibreSSL.</p>
+</section>
+<section id="install-dxlbootstrap">
+<h2>Install dxlbootstrap<a class="headerlink" href="#install-dxlbootstrap" title="Permalink to this heading">¶</a></h2>
+<p>Use pip to install dxlbootrap.</p>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">¶</a></h2>
+<p>With these steps, you should now be able to run <code class="docutils literal notranslate"><span class="pre">dxlclient</span> <span class="pre">provisionconfig</span> <span class="pre">[SERVER_IP]</span> <span class="pre">[CLIENT_NAME]</span></code>
+which is used to create a config file that can be used by the opendxl client.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">DXL Client Python3.12 Patch</a><ul>
+<li><a class="reference internal" href="#basic-virtual-env">Basic virtual env</a></li>
+<li><a class="reference internal" href="#edit-collections-init-file">Edit collections init file</a></li>
+<li><a class="reference internal" href="#libcrypto-modification">Libcrypto modification</a></li>
+<li><a class="reference internal" href="#install-dxlbootstrap">Install dxlbootstrap</a></li>
+<li><a class="reference internal" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="installation.html"
+                          title="previous chapter">Library Installation</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="sampleconfig.html"
+                          title="next chapter">Samples Configuration</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pythonpatch.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="sampleconfig.html" title="Samples Configuration"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="Library Installation"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Cisco pxGrid DXL Client Library 1.0.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">DXL Client Python3.12 Patch</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2024 Musarubra LLC.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+    </div>
+  </body>
+</html>

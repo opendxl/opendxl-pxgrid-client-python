@@ -1,21 +1,21 @@
+<!DOCTYPE html>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Library Installation &#8212; Cisco pxGrid DXL Client Library 0.2.0 documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Library Installation &#8212; Cisco pxGrid DXL Client Library 1.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=89b800e6" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=af2ce170"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Samples Configuration" href="sampleconfig.html" />
+    <link rel="next" title="DXL Client Python3.12 Patch" href="pythonpatch.html" />
     <link rel="prev" title="Overview" href="overview.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -28,12 +28,13 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="sampleconfig.html" title="Samples Configuration"
+          <a href="pythonpatch.html" title="DXL Client Python3.12 Patch"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="overview.html" title="Overview"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Cisco pxGrid DXL Client Library 0.2.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Cisco pxGrid DXL Client Library 1.0.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Library Installation</a></li> 
       </ul>
     </div>  
 
@@ -42,59 +43,57 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="library-installation">
-<h1>Library Installation<a class="headerlink" href="#library-installation" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+  <section id="library-installation">
+<h1>Library Installation<a class="headerlink" href="#library-installation" title="Permalink to this heading">¶</a></h1>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li><dl class="first docutils">
-<dt>OpenDXL Python Client library installed</dt>
-<dd><a class="reference external" href="https://github.com/opendxl/opendxl-client-python">https://github.com/opendxl/opendxl-client-python</a></dd>
+<li><dl class="simple">
+<dt>OpenDXL Python Client library installed</dt><dd><p><a class="reference external" href="https://github.com/opendxl/opendxl-client-python">https://github.com/opendxl/opendxl-client-python</a></p>
+</dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>The OpenDXL Python Client prerequisites must be satisfied</dt>
-<dd><a class="reference external" href="https://opendxl.github.io/opendxl-client-python/pydoc/installation.html">https://opendxl.github.io/opendxl-client-python/pydoc/installation.html</a></dd>
+<li><dl class="simple">
+<dt>The OpenDXL Python Client prerequisites must be satisfied</dt><dd><p><a class="reference external" href="https://opendxl.github.io/opendxl-client-python/pydoc/installation.html">https://opendxl.github.io/opendxl-client-python/pydoc/installation.html</a></p>
+</dd>
 </dl>
 </li>
-<li>The DXL fabric to which the client will connect has been bridged to Cisco
-pxGrid.</li>
-<li>Python 2.7.9 or higher in the Python 2.x series or Python 3.4.0 or higher
-in the Python 3.x series installed within a Windows or Linux environment.</li>
+<li><p>The DXL fabric to which the client will connect has been bridged to Cisco
+pxGrid.</p></li>
+<li><p>Python 2.7.9 or higher in the Python 2.x series or Python 3.4.0 or higher
+in the Python 3.x series installed within a Windows or Linux environment.</p></li>
 </ul>
-</div>
-<div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">¶</a></h2>
 <p>Use <code class="docutils literal notranslate"><span class="pre">pip</span></code> to automatically install the library:</p>
 <blockquote>
-<div><pre class="literal-block">
-pip install dxlciscopxgridclient-0.2.0-py2.py3-none-any.whl
-</pre>
+<div><pre class="literal-block">pip install dxlciscopxgridclient-1.0.0-py2.py3-none-any.whl</pre>
 </div></blockquote>
 <p>Or with:</p>
 <blockquote>
-<div><pre class="literal-block">
-pip install dxlciscopxgridclient-0.2.0.zip
-</pre>
+<div><pre class="literal-block">pip install dxlciscopxgridclient-1.0.0.zip</pre>
 </div></blockquote>
-<p>As an alternative (without PIP), unpack the dxlciscopxgridclient-0.2.0.zip (located in the lib folder) and run the setup
+<p>As an alternative (without PIP), unpack the dxlciscopxgridclient-1.0.0.zip (located in the lib folder) and run the setup
 script:</p>
 <blockquote>
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
 </pre></div>
 </div>
 </div></blockquote>
-</div>
-</div>
+</section>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">Library Installation</a><ul>
 <li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
 <li><a class="reference internal" href="#installation">Installation</a></li>
@@ -102,12 +101,17 @@ script:</p>
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="overview.html"
-                        title="previous chapter">Overview</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="sampleconfig.html"
-                        title="next chapter">Samples Configuration</a></p>
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="overview.html"
+                          title="previous chapter">Overview</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="pythonpatch.html"
+                          title="next chapter">DXL Client Python3.12 Patch</a></p>
+  </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -116,17 +120,15 @@ script:</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -141,17 +143,18 @@ script:</p>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="sampleconfig.html" title="Samples Configuration"
+          <a href="pythonpatch.html" title="DXL Client Python3.12 Patch"
              >next</a> |</li>
         <li class="right" >
           <a href="overview.html" title="Overview"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Cisco pxGrid DXL Client Library 0.2.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Cisco pxGrid DXL Client Library 1.0.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Library Installation</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2018 McAfee LLC.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.
+    &#169; Copyright 2024 Musarubra LLC.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
     </div>
   </body>
 </html>

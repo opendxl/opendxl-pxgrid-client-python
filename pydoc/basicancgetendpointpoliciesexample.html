@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Basic Retrieve ANC Policy by Name Example &#8212; Cisco pxGrid DXL Client Library 1.0.0 documentation</title>
+    <title>Basic Get ANC Endpoint Policies &#8212; Cisco pxGrid DXL Client Library 1.0.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/classic.css?v=89b800e6" />
     
@@ -15,8 +15,8 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Basic Get ANC Operation Status" href="basicancgetoperationstatusexample.html" />
-    <link rel="prev" title="Basic Retrieve All ANC Policies Example" href="basicancretrieveallpoliciesexample.html" /> 
+    <link rel="next" title="Basic Get ANC Endpoints" href="basicancgetendpointsexample.html" />
+    <link rel="prev" title="Basic Get ANC Endpoint by NAS IP Address Example" href="basicancgetendpointbynasipexample.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,13 +28,13 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="basicancgetoperationstatusexample.html" title="Basic Get ANC Operation Status"
+          <a href="basicancgetendpointsexample.html" title="Basic Get ANC Endpoints"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="basicancretrieveallpoliciesexample.html" title="Basic Retrieve All ANC Policies Example"
+          <a href="basicancgetendpointbynasipexample.html" title="Basic Get ANC Endpoint by NAS IP Address Example"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">Cisco pxGrid DXL Client Library 1.0.0 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Basic Retrieve ANC Policy by Name Example</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Basic Get ANC Endpoint Policies</a></li> 
       </ul>
     </div>  
 
@@ -43,73 +43,46 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="basic-retrieve-anc-policy-by-name-example">
-<h1>Basic Retrieve ANC Policy by Name Example<a class="headerlink" href="#basic-retrieve-anc-policy-by-name-example" title="Permalink to this heading">¶</a></h1>
-<p>This sample retrieves information for a named Cisco Adaptive Network
-Control (ANC) policy via DXL and Cisco pxGrid.</p>
+  <section id="basic-get-anc-endpoint-policies">
+<h1>Basic Get ANC Endpoint Policies<a class="headerlink" href="#basic-get-anc-endpoint-policies" title="Permalink to this heading">¶</a></h1>
+<p>This is used to get endpoints with policies applied using both MAC address and NAS IP address.
+An empty json structure must be sent as the request. If no endpoint policy is found, endpoints will have an empty array.</p>
 <section id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">¶</a></h2>
-<ul>
+<ul class="simple">
 <li><p>The samples configuration step has been completed (see <a class="reference internal" href="sampleconfig.html"><span class="doc">Samples Configuration</span></a>).</p></li>
 <li><p>The DXL fabric to which the client will connect has been bridged to Cisco
 pxGrid.</p></li>
 <li><p>The Python client has been authorized to perform <code class="docutils literal notranslate"><span class="pre">DXL</span> <span class="pre">Cisco</span> <span class="pre">pxGrid</span> <span class="pre">Queries</span></code>
 (see <a class="reference internal" href="pxgridauth.html"><span class="doc">Authorize Client to Use Cisco pxGrid via DXL</span></a>).</p></li>
-<li><p>An ANC policy named <code class="docutils literal notranslate"><span class="pre">ANC_Shut</span></code> has been configured. The policy
-could be created by logging into the Cisco Identity Services Engine (ISE) web
-interface and performing the following steps:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>Navigate to <strong>Operations</strong> → <strong>Adaptive Network Control</strong> →
-<strong>Policy List</strong>.</p></li>
-<li><p>On the <strong>List</strong> screen, click on the <strong>Add</strong> button.</p></li>
-<li><p>On the <strong>List</strong> → <strong>New</strong> screen, enter <code class="docutils literal notranslate"><span class="pre">ANC_Shut</span></code> in the
-<strong>name</strong> field, select <code class="docutils literal notranslate"><span class="pre">SHUT_DOWN</span></code> in the <strong>Action</strong> field, and press
-the <strong>Submit</strong> button.</p></li>
-</ul>
-</div></blockquote>
-</li>
 </ul>
 </section>
 <section id="running">
 <h2>Running<a class="headerlink" href="#running" title="Permalink to this heading">¶</a></h2>
 <p>To run this sample execute the
-<code class="docutils literal notranslate"><span class="pre">sample/basic/basic_anc_retrieve_policy_by_name_example.py</span></code> script as
+<code class="docutils literal notranslate"><span class="pre">sample/basic/basic_anc_get_endpoint_policies_example.py</span></code> script as
 follows:</p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">sample</span><span class="o">/</span><span class="n">basic</span><span class="o">/</span><span class="n">basic_anc_retrieve_policy_by_name_example</span><span class="o">.</span><span class="n">py</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">sample</span><span class="o">/</span><span class="n">basic</span><span class="o">/</span><span class="n">basic_anc_get_endpoint_policies_example</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
 </div></blockquote>
-<p>If policy information can be retrieved successfully, the output should appear
-similar to the following:</p>
+<p>If information can be retrieved successfully for the endpoint, the output
+should appear similar to the following:</p>
 <blockquote>
 <div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;actions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">        </span><span class="s2">&quot;SHUT_DOWN&quot;</span>
-<span class="w">    </span><span class="p">],</span>
-<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ANC_Shut&quot;</span>
+<span class="w">    </span><span class="nt">&quot;endpoints&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div></blockquote>
-<p>The received results are displayed.</p>
-<p>If the <code class="docutils literal notranslate"><span class="pre">ANC_Shut</span></code> has not been defined before the example is run, output similar to the following should
-appear:</p>
-<blockquote>
-<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;204&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;no content&quot;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div></blockquote>
+<p>where the <cite>endpoints</cite> list is empty if no endpoints have policies.</p>
 </section>
 <section id="details">
 <h2>Details<a class="headerlink" href="#details" title="Permalink to this heading">¶</a></h2>
 <p>The majority of the sample code is shown below:</p>
 <blockquote>
-<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the client</span>
-<span class="k">with</span> <span class="n">DxlClient</span><span class="p">(</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">dxl_client</span><span class="p">:</span>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">DxlClient</span><span class="p">(</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">dxl_client</span><span class="p">:</span>
 
     <span class="c1"># Connect to the fabric</span>
     <span class="n">dxl_client</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
@@ -120,16 +93,14 @@ appear:</p>
     <span class="n">client</span> <span class="o">=</span> <span class="n">CiscoPxGridClient</span><span class="p">(</span><span class="n">dxl_client</span><span class="p">)</span>
 
     <span class="k">try</span><span class="p">:</span>
-        <span class="c1"># Invoke &#39;retrieve policy by name&#39; method on service</span>
-        <span class="n">resp_dict</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">anc</span><span class="o">.</span><span class="n">retrieve_policy_by_name</span><span class="p">(</span><span class="s2">&quot;ANC_Shut&quot;</span><span class="p">)</span>
+        <span class="c1"># Invoke &#39;get endpoint policies&#39;</span>
+        <span class="n">resp_dict</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">anc</span><span class="o">.</span><span class="n">get_endpoint_policies</span><span class="p">()</span>
 
         <span class="c1"># Print out the response (convert dictionary to JSON for pretty</span>
         <span class="c1"># printing)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Response:</span><span class="se">\n</span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
             <span class="n">MessageUtils</span><span class="o">.</span><span class="n">dict_to_json</span><span class="p">(</span><span class="n">resp_dict</span><span class="p">,</span> <span class="n">pretty_print</span><span class="o">=</span><span class="kc">True</span><span class="p">)))</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
-        <span class="c1"># An exception should be raised if the &#39;ANC_Shut&#39; has not</span>
-        <span class="c1"># already been created.</span>
         <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ex</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -137,10 +108,10 @@ appear:</p>
 <p>Once a connection is established to the DXL fabric, a
 <a class="reference internal" href="dxlciscopxgridclient.client.html#dxlciscopxgridclient.client.CiscoPxGridClient" title="dxlciscopxgridclient.client.CiscoPxGridClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">dxlciscopxgridclient.client.CiscoPxGridClient</span></code></a> instance is created which
 will be used to communicate with Cisco pxGrid.</p>
-<p>Next, the <a class="reference internal" href="dxlciscopxgridclient.client.html#dxlciscopxgridclient.client.AncClientCategory.retrieve_policy_by_name" title="dxlciscopxgridclient.client.AncClientCategory.retrieve_policy_by_name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">dxlciscopxgridclient.client.AncClientCategory.retrieve_policy_by_name()</span></code></a>
-method is invoked with the name of the policy for which to retrieve information.</p>
+<p>Next, the <a class="reference internal" href="dxlciscopxgridclient.client.html#dxlciscopxgridclient.client.AncClientCategory.get_endpoint_policies" title="dxlciscopxgridclient.client.AncClientCategory.get_endpoint_policies"><code class="xref py py-meth docutils literal notranslate"><span class="pre">dxlciscopxgridclient.client.AncClientCategory.get_endpoint_policies()</span></code></a>
+method.</p>
 <p>The final step is to display the contents of the returned dictionary (<code class="docutils literal notranslate"><span class="pre">dict</span></code>)
-which contains the results of the attempt to retrieve policy information.</p>
+which contains the results of the attempt to retrieve the endpoints.</p>
 </section>
 </section>
 
@@ -154,7 +125,7 @@ which contains the results of the attempt to retrieve policy information.</p>
   <div>
     <h3><a href="index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">Basic Retrieve ANC Policy by Name Example</a><ul>
+<li><a class="reference internal" href="#">Basic Get ANC Endpoint Policies</a><ul>
 <li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
 <li><a class="reference internal" href="#running">Running</a></li>
 <li><a class="reference internal" href="#details">Details</a></li>
@@ -165,18 +136,18 @@ which contains the results of the attempt to retrieve policy information.</p>
   </div>
   <div>
     <h4>Previous topic</h4>
-    <p class="topless"><a href="basicancretrieveallpoliciesexample.html"
-                          title="previous chapter">Basic Retrieve All ANC Policies Example</a></p>
+    <p class="topless"><a href="basicancgetendpointbynasipexample.html"
+                          title="previous chapter">Basic Get ANC Endpoint by NAS IP Address Example</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="basicancgetoperationstatusexample.html"
-                          title="next chapter">Basic Get ANC Operation Status</a></p>
+    <p class="topless"><a href="basicancgetendpointsexample.html"
+                          title="next chapter">Basic Get ANC Endpoints</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/basicancretrievepolicybynameexample.rst.txt"
+      <li><a href="_sources/basicancgetendpointpoliciesexample.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -204,13 +175,13 @@ which contains the results of the attempt to retrieve policy information.</p>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="basicancgetoperationstatusexample.html" title="Basic Get ANC Operation Status"
+          <a href="basicancgetendpointsexample.html" title="Basic Get ANC Endpoints"
              >next</a> |</li>
         <li class="right" >
-          <a href="basicancretrieveallpoliciesexample.html" title="Basic Retrieve All ANC Policies Example"
+          <a href="basicancgetendpointbynasipexample.html" title="Basic Get ANC Endpoint by NAS IP Address Example"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">Cisco pxGrid DXL Client Library 1.0.0 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Basic Retrieve ANC Policy by Name Example</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Basic Get ANC Endpoint Policies</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

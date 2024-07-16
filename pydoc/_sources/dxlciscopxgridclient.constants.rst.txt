@@ -1,7 +1,0 @@
-dxlciscopxgridclient.constants module
-=====================================
-
-.. automodule:: dxlciscopxgridclient.constants
-    :members:
-    :undoc-members:
-    :show-inheritance:

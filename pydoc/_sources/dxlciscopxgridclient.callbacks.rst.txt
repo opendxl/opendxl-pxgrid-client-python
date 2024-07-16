@@ -2,6 +2,6 @@ dxlciscopxgridclient.callbacks module
 =====================================
 
 .. automodule:: dxlciscopxgridclient.callbacks
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Basic Apply ANC Endpoint Policy by IP Address Example &#8212; Cisco pxGrid DXL Client Library 1.0.0 documentation</title>
+    <title>Basic Apply ANC Endpoint Policy Example &#8212; Cisco pxGrid DXL Client Library 1.0.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/classic.css?v=89b800e6" />
     
@@ -15,8 +15,8 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Basic Apply ANC Endpoint Policy by MAC Address Example" href="basicancapplyendpointpolicybymacexample.html" />
-    <link rel="prev" title="Enable Cisco pxGrid Notifications for DXL" href="pxgridnotifications.html" /> 
+    <link rel="next" title="Basic Clear ANC Endpoint Policy by MAC Address Example" href="basicancclearendpointpolicybymacexample.html" />
+    <link rel="prev" title="Basic Apply ANC Endpoint Policy by MAC Address Example" href="basicancapplyendpointpolicybymacexample.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,13 +28,13 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="basicancapplyendpointpolicybymacexample.html" title="Basic Apply ANC Endpoint Policy by MAC Address Example"
+          <a href="basicancclearendpointpolicybymacexample.html" title="Basic Clear ANC Endpoint Policy by MAC Address Example"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="pxgridnotifications.html" title="Enable Cisco pxGrid Notifications for DXL"
+          <a href="basicancapplyendpointpolicybymacexample.html" title="Basic Apply ANC Endpoint Policy by MAC Address Example"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">Cisco pxGrid DXL Client Library 1.0.0 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Basic Apply ANC Endpoint Policy by IP Address Example</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Basic Apply ANC Endpoint Policy Example</a></li> 
       </ul>
     </div>  
 
@@ -43,11 +43,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="basic-apply-anc-endpoint-policy-by-ip-address-example">
-<h1>Basic Apply ANC Endpoint Policy by IP Address Example<a class="headerlink" href="#basic-apply-anc-endpoint-policy-by-ip-address-example" title="Permalink to this heading">¶</a></h1>
+  <section id="basic-apply-anc-endpoint-policy-example">
+<h1>Basic Apply ANC Endpoint Policy Example<a class="headerlink" href="#basic-apply-anc-endpoint-policy-example" title="Permalink to this heading">¶</a></h1>
 <p>This sample applies a Cisco Adaptive Network Control (ANC) policy to an
-endpoint via DXL and Cisco pxGrid. The sample identifies the endpoint by its IP
-address.</p>
+endpoint via DXL and Cisco pxGrid. The sample identifies the endpoint by its
+MAC address, NAS IP address and other parameters.</p>
 <section id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">¶</a></h2>
 <ul>
@@ -56,14 +56,9 @@ address.</p>
 pxGrid.</p></li>
 <li><p>The Python client has been authorized to perform <code class="docutils literal notranslate"><span class="pre">DXL</span> <span class="pre">Cisco</span> <span class="pre">pxGrid</span> <span class="pre">Queries</span></code>
 (see <a class="reference internal" href="pxgridauth.html"><span class="doc">Authorize Client to Use Cisco pxGrid via DXL</span></a>).</p></li>
-<li><p>A session has been established with the Cisco Identity Services Engine (ISE)
-server for an endpoint. The endpoint's IP address will be used when running
-this example. For an example on creating a simulated session for testing, see
-the Cisco RADIUS Simulator command examples in
-<a class="reference internal" href="basicidentitysessionnotificationexample.html"><span class="doc">Basic pxGrid Session Notification Example</span></a>.</p></li>
 <li><p>An ANC policy named <code class="docutils literal notranslate"><span class="pre">ANC_Shut</span></code> has been configured. The policy
-could be created by logging into the ISE web interface and performing the
-following steps:</p>
+could be created by logging into the Cisco Identity Services Engine (ISE) web
+interface and performing the following steps:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>Navigate to <strong>Operations</strong> → <strong>Adaptive Network Control</strong> →
@@ -79,27 +74,26 @@ the <strong>Submit</strong> button.</p></li>
 </section>
 <section id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this heading">¶</a></h2>
-<p>Update the following line in the sample:</p>
+<p>Update the following lines in the sample:</p>
 <blockquote>
-<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">HOST_IP</span> <span class="o">=</span> <span class="s2">&quot;&lt;SPECIFY_IP_ADDRESS&gt;&quot;</span>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">MAC_ADDRESS</span> <span class="o">=</span> <span class="s2">&quot;&lt;INSERT_MAC_HERE&gt;&quot;</span>
+<span class="n">NAS_IP_ADDRESS</span> <span class="o">=</span> <span class="s2">&quot;&lt;INSERT_NAS_IP_HERE&gt;&quot;</span>
+<span class="n">SESSION_ID</span> <span class="o">=</span> <span class="s2">&quot;&lt;INSERT_SESSIONID_HERE&gt;&quot;</span>
+<span class="n">NAS_PORT_ID</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># &quot;&lt;OPTIONAL INSERT HERE&gt;&quot;</span>
+<span class="n">IP_ADDRESS</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># &quot;&lt;OPTIONAL INSERT HERE&gt;&quot;</span>
+<span class="n">USERNAME</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># &quot;&lt;OPTIONAL INSERT HERE&gt;&quot;</span>
 </pre></div>
 </div>
 </div></blockquote>
-<p>To specify the IP address of an endpoint for which to apply the
-<code class="docutils literal notranslate"><span class="pre">ANC_Shut</span></code>. For example:</p>
-<blockquote>
-<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">HOST_IP</span> <span class="o">=</span> <span class="s2">&quot;192.168.1.1&quot;</span>
-</pre></div>
-</div>
-</div></blockquote>
+<p>Note that the last 3 lines are optional parameters.</p>
 </section>
 <section id="running">
 <h2>Running<a class="headerlink" href="#running" title="Permalink to this heading">¶</a></h2>
 <p>To run this sample execute the
-<code class="docutils literal notranslate"><span class="pre">sample/basic/basic_anc_apply_endpoint_policy_by_ip_example.py</span></code> script as
+<code class="docutils literal notranslate"><span class="pre">sample/basic/basic_anc_apply_endpoint_policy.py</span></code> script as
 follows:</p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">sample</span><span class="o">/</span><span class="n">basic</span><span class="o">/</span><span class="n">basic_anc_apply_endpoint_policy_by_ip_example</span><span class="o">.</span><span class="n">py</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">sample</span><span class="o">/</span><span class="n">basic</span><span class="o">/</span><span class="n">basic_anc_apply_endpoint_policy</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -107,7 +101,7 @@ follows:</p>
 the following:</p>
 <blockquote>
 <div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;ipAddress&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;192.168.1.1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;macAddress&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;00:11:22:33:44:55&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;operationId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cise.psarchlab.com:149&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;policyName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ANC_Shut&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SUCCESS&quot;</span>
@@ -117,24 +111,16 @@ the following:</p>
 </div></blockquote>
 <p>The received results are displayed.</p>
 <p>If the <code class="docutils literal notranslate"><span class="pre">ANC_Shut</span></code> has already been associated with the endpoint
-before the example is run, output similar
-to the following should appear:</p>
+before the example is run, output similar to the
+following should appear:</p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span><span class="p">:</span> <span class="n">mac</span> <span class="n">address</span> <span class="ow">is</span> <span class="n">already</span> <span class="n">associated</span> <span class="k">with</span> <span class="n">this</span> <span class="n">policy</span> <span class="n">error</span> <span class="n">associated</span> <span class="k">with</span> <span class="n">ip</span> <span class="mf">192.168.1.1</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span><span class="p">:</span> <span class="n">mac</span> <span class="n">address</span> <span class="ow">is</span> <span class="n">already</span> <span class="n">associated</span> <span class="k">with</span> <span class="n">this</span> <span class="n">policy</span> <span class="n">error</span> <span class="n">associated</span> <span class="k">with</span> <span class="n">mac</span> <span class="mi">00</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">33</span><span class="p">:</span><span class="mi">44</span><span class="p">:</span><span class="mi">55</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div></blockquote>
-<p>If the <code class="docutils literal notranslate"><span class="pre">ANC_Shut</span></code> has not been defined before the example is run, output similar to the following should
-appear:</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">ANC_Shut</span></code> has not been defined before the example is run, output similar to the following should appear:</p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span><span class="p">:</span> <span class="n">Policy</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">configured</span> <span class="n">error</span> <span class="n">associated</span> <span class="k">with</span> <span class="n">ip</span> <span class="mf">192.168.1.1</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div></blockquote>
-<p>If no session has been established for an endpoint which corresponds to the IP, output similar to the following
-should appear:</p>
-<blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span><span class="p">:</span> <span class="n">Session</span> <span class="n">lookup</span> <span class="n">failure</span> <span class="n">error</span> <span class="n">associated</span> <span class="k">with</span> <span class="n">ip</span> <span class="mf">192.168.1.1</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span><span class="p">:</span> <span class="n">Policy</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">configured</span> <span class="n">error</span> <span class="n">associated</span> <span class="k">with</span> <span class="n">mac</span> <span class="mi">00</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">33</span><span class="p">:</span><span class="mi">44</span><span class="p">:</span><span class="mi">55</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -143,8 +129,12 @@ should appear:</p>
 <h2>Details<a class="headerlink" href="#details" title="Permalink to this heading">¶</a></h2>
 <p>The majority of the sample code is shown below:</p>
 <blockquote>
-<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># IP address of the endpoint for which to apply the policy</span>
-<span class="n">HOST_IP</span> <span class="o">=</span> <span class="s2">&quot;&lt;SPECIFY_IP_ADDRESS&gt;&quot;</span>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">MAC_ADDRESS</span> <span class="o">=</span> <span class="s2">&quot;&lt;INSERT_MAC_HERE&gt;&quot;</span>
+<span class="n">NAS_IP_ADDRESS</span> <span class="o">=</span> <span class="s2">&quot;&lt;INSERT_NAS_IP_HERE&gt;&quot;</span>
+<span class="n">SESSION_ID</span> <span class="o">=</span> <span class="s2">&quot;&lt;INSERT_SESSIONID_HERE&gt;&quot;</span>
+<span class="n">NAS_PORT_ID</span> <span class="o">=</span> <span class="s2">&quot;&lt;OPTIONAL INSERT HERE&gt;&quot;</span>
+<span class="n">IP_ADDRESS</span> <span class="o">=</span> <span class="s2">&quot;&lt;OPTIONAL INSERT HERE&gt;&quot;</span>
+<span class="n">USERNAME</span> <span class="o">=</span> <span class="s2">&quot;&lt;OPTIONAL INSERT HERE&gt;&quot;</span>
 
 <span class="c1"># Create the client</span>
 <span class="k">with</span> <span class="n">DxlClient</span><span class="p">(</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">dxl_client</span><span class="p">:</span>
@@ -158,9 +148,8 @@ should appear:</p>
     <span class="n">client</span> <span class="o">=</span> <span class="n">CiscoPxGridClient</span><span class="p">(</span><span class="n">dxl_client</span><span class="p">)</span>
 
     <span class="k">try</span><span class="p">:</span>
-        <span class="c1"># Invoke &#39;apply endpoint policy by IP&#39; method on service</span>
-        <span class="n">resp_dict</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">anc</span><span class="o">.</span><span class="n">apply_endpoint_policy_by_ip</span><span class="p">(</span><span class="n">HOST_IP</span><span class="p">,</span>
-                                                          <span class="s2">&quot;ANC_Shut&quot;</span><span class="p">)</span>
+        <span class="c1"># Invoke &#39;retrieve policy by name&#39; method on service</span>
+        <span class="n">resp_dict</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">anc</span><span class="o">.</span><span class="n">apply_endpoint_policy</span><span class="p">(</span><span class="s2">&quot;ANC_Shut&quot;</span><span class="p">,</span> <span class="n">MAC_ADDRESS</span><span class="p">,</span> <span class="n">NAS_IP_ADDRESS</span><span class="p">,</span> <span class="n">NAS_PORT_ID</span><span class="p">,</span> <span class="n">IP_ADDRESS</span><span class="p">,</span> <span class="n">USERNAME</span><span class="p">)</span>
 
         <span class="c1"># Print out the response (convert dictionary to JSON for pretty</span>
         <span class="c1"># printing)</span>
@@ -174,8 +163,8 @@ should appear:</p>
 <p>Once a connection is established to the DXL fabric, a
 <a class="reference internal" href="dxlciscopxgridclient.client.html#dxlciscopxgridclient.client.CiscoPxGridClient" title="dxlciscopxgridclient.client.CiscoPxGridClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">dxlciscopxgridclient.client.CiscoPxGridClient</span></code></a> instance is created which
 will be used to communicate with Cisco pxGrid.</p>
-<p>Next, the <a class="reference internal" href="dxlciscopxgridclient.client.html#dxlciscopxgridclient.client.AncClientCategory.apply_endpoint_policy_by_ip" title="dxlciscopxgridclient.client.AncClientCategory.apply_endpoint_policy_by_ip"><code class="xref py py-meth docutils literal notranslate"><span class="pre">dxlciscopxgridclient.client.AncClientCategory.apply_endpoint_policy_by_ip()</span></code></a>
-method is invoked with the IP address of the endpoint for which to apply the
+<p>Next, the <a class="reference internal" href="dxlciscopxgridclient.client.html#dxlciscopxgridclient.client.AncClientCategory.apply_endpoint_policy" title="dxlciscopxgridclient.client.AncClientCategory.apply_endpoint_policy"><code class="xref py py-meth docutils literal notranslate"><span class="pre">dxlciscopxgridclient.client.AncClientCategory.apply_endpoint_policy()</span></code></a>
+method is invoked with the endpoint information for which to apply the
 <code class="docutils literal notranslate"><span class="pre">ANC_Shut</span></code>.</p>
 <p>The final step is to display the contents of the returned dictionary (<code class="docutils literal notranslate"><span class="pre">dict</span></code>)
 which contains the results of the attempt to apply the <code class="docutils literal notranslate"><span class="pre">ANC_Shut</span></code>
@@ -193,7 +182,7 @@ to the endpoint.</p>
   <div>
     <h3><a href="index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">Basic Apply ANC Endpoint Policy by IP Address Example</a><ul>
+<li><a class="reference internal" href="#">Basic Apply ANC Endpoint Policy Example</a><ul>
 <li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
 <li><a class="reference internal" href="#configuration">Configuration</a></li>
 <li><a class="reference internal" href="#running">Running</a></li>
@@ -205,18 +194,18 @@ to the endpoint.</p>
   </div>
   <div>
     <h4>Previous topic</h4>
-    <p class="topless"><a href="pxgridnotifications.html"
-                          title="previous chapter">Enable Cisco pxGrid Notifications for DXL</a></p>
+    <p class="topless"><a href="basicancapplyendpointpolicybymacexample.html"
+                          title="previous chapter">Basic Apply ANC Endpoint Policy by MAC Address Example</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="basicancapplyendpointpolicybymacexample.html"
-                          title="next chapter">Basic Apply ANC Endpoint Policy by MAC Address Example</a></p>
+    <p class="topless"><a href="basicancclearendpointpolicybymacexample.html"
+                          title="next chapter">Basic Clear ANC Endpoint Policy by MAC Address Example</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/basicancapplyendpointpolicybyipexample.rst.txt"
+      <li><a href="_sources/basicancapplyendpointpolicyexample.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -244,13 +233,13 @@ to the endpoint.</p>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="basicancapplyendpointpolicybymacexample.html" title="Basic Apply ANC Endpoint Policy by MAC Address Example"
+          <a href="basicancclearendpointpolicybymacexample.html" title="Basic Clear ANC Endpoint Policy by MAC Address Example"
              >next</a> |</li>
         <li class="right" >
-          <a href="pxgridnotifications.html" title="Enable Cisco pxGrid Notifications for DXL"
+          <a href="basicancapplyendpointpolicybymacexample.html" title="Basic Apply ANC Endpoint Policy by MAC Address Example"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">Cisco pxGrid DXL Client Library 1.0.0 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Basic Apply ANC Endpoint Policy by IP Address Example</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Basic Apply ANC Endpoint Policy Example</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

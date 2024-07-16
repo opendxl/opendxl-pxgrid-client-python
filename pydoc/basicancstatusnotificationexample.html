@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Basic pxGrid ANC Status Notification Example &#8212; Cisco pxGrid DXL Client Library 1.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=89b800e6" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=af2ce170"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Basic pxGrid Session Notification Example" href="basicidentitysessionnotificationexample.html" />
+    <link rel="prev" title="Basic Get ANC Operation Status" href="basicancgetoperationstatusexample.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="basicidentitysessionnotificationexample.html" title="Basic pxGrid Session Notification Example"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="basicancgetoperationstatusexample.html" title="Basic Get ANC Operation Status"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Cisco pxGrid DXL Client Library 1.0.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Basic pxGrid ANC Status Notification Example</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="basic-pxgrid-anc-status-notification-example">
+<h1>Basic pxGrid ANC Status Notification Example<a class="headerlink" href="#basic-pxgrid-anc-status-notification-example" title="Permalink to this heading">¶</a></h1>
+<p>This sample registers and outputs messages received for Cisco Identity Services
+Engine (ISE) <code class="docutils literal notranslate"><span class="pre">ANC</span> <span class="pre">Status</span></code> notifications via DXL and Cisco pxGrid.</p>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>The samples configuration step has been completed (see <a class="reference internal" href="sampleconfig.html"><span class="doc">Samples Configuration</span></a>).</p></li>
+<li><p>The DXL fabric to which the client will connect has been bridged to Cisco
+pxGrid.</p></li>
+<li><p>The Python client has been authorized to receive
+<code class="docutils literal notranslate"><span class="pre">DXL</span> <span class="pre">Cisco</span> <span class="pre">pxGrid</span> <span class="pre">Notifications</span></code> (see <a class="reference internal" href="pxgridauth.html"><span class="doc">Authorize Client to Use Cisco pxGrid via DXL</span></a>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ANC</span> <span class="pre">Status</span> <span class="pre">Notifications</span></code> from pxGrid have been enabled (see
+<a class="reference internal" href="pxgridnotifications.html"><span class="doc">Enable Cisco pxGrid Notifications for DXL</span></a>).</p></li>
+</ul>
+</section>
+<section id="running">
+<h2>Running<a class="headerlink" href="#running" title="Permalink to this heading">¶</a></h2>
+<p>To run this sample execute the
+<code class="docutils literal notranslate"><span class="pre">sample/basic/basic_anc_status_notification_example.py</span></code> script as
+follows:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">sample</span><span class="o">/</span><span class="n">basic</span><span class="o">/</span><span class="n">basic_anc_status_notification_example</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>After the example starts up, the initial output should appear similar to the
+following:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Waiting</span> <span class="k">for</span> <span class="n">anc</span> <span class="n">status</span> <span class="n">events</span><span class="o">...</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>To generate a status notification, navigate to Adaptive Network Control in ISE,
+and create a new Endpoint Assignment.</p>
+<p>Output would be similar to:</p>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MESSAGE&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;macAddress&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;00:11:22:33:44:55&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;operationId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cise.psarchlab.com:144&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;policyName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ANC_Shut&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SUCCESS&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;headers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;content-length&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;116&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;destination&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/topic/com.cisco.ise.config.anc.status&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;message-id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;112331&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;subscription&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="details">
+<h2>Details<a class="headerlink" href="#details" title="Permalink to this heading">¶</a></h2>
+<p>The majority of the sample code is shown below:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">DxlClient</span><span class="p">(</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">dxl_client</span><span class="p">:</span>
+
+    <span class="c1"># Connect to the fabric</span>
+    <span class="n">dxl_client</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Connected to DXL fabric.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Create client wrapper</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="n">CiscoPxGridClient</span><span class="p">(</span><span class="n">dxl_client</span><span class="p">)</span>
+
+    <span class="k">class</span> <span class="nc">MyAncNotificationCallback</span><span class="p">(</span><span class="n">AncStatusCallback</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">_on_status_notification</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">apply_dict</span><span class="p">):</span>
+            <span class="k">if</span> <span class="s1">&#39;content&#39;</span> <span class="ow">in</span> <span class="n">apply_dict</span><span class="p">:</span>
+                <span class="n">content</span> <span class="o">=</span> <span class="n">apply_dict</span><span class="p">[</span><span class="s1">&#39;content&#39;</span><span class="p">]</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">decoded_content</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">content</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+                        <span class="n">apply_dict</span><span class="p">[</span><span class="s1">&#39;content&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">decoded_content</span><span class="p">)</span>
+                    <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="n">base64</span><span class="o">.</span><span class="n">binascii</span><span class="o">.</span><span class="n">Error</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error decoding content: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Content is not a string, cannot decode.&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;anc_status_notification</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>
+                <span class="n">MessageUtils</span><span class="o">.</span><span class="n">dict_to_json</span><span class="p">(</span><span class="n">apply_dict</span><span class="p">,</span> <span class="n">pretty_print</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Attach callback for &#39;apply policy&#39; events</span>
+    <span class="n">client</span><span class="o">.</span><span class="n">anc</span><span class="o">.</span><span class="n">add_anc_status_callback</span><span class="p">(</span>
+        <span class="n">MyAncNotificationCallback</span><span class="p">())</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Once a connection is established to the DXL fabric, a
+<a class="reference internal" href="dxlciscopxgridclient.client.html#dxlciscopxgridclient.client.CiscoPxGridClient" title="dxlciscopxgridclient.client.CiscoPxGridClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">dxlciscopxgridclient.client.CiscoPxGridClient</span></code></a> instance is created which
+will be used to communicate with Cisco pxGrid.</p>
+<p>Next, the
+<a class="reference internal" href="dxlciscopxgridclient.client.html#dxlciscopxgridclient.client.AncClientCategory.add_anc_status_callback" title="dxlciscopxgridclient.client.AncClientCategory.add_anc_status_callback"><code class="xref py py-meth docutils literal notranslate"><span class="pre">dxlciscopxgridclient.client.AncClientCategory.add_anc_status_callback()</span></code></a>
+method is invoked to register a callback for ANC status event notifications.</p>
+<p>When an ANC status event occurs, the <code class="docutils literal notranslate"><span class="pre">_on_status_notification</span></code> method in the
+<code class="docutils literal notranslate"><span class="pre">MyAncNotificationCallback</span></code> class is invoked. The <code class="docutils literal notranslate"><span class="pre">status_dict</span></code> parameter
+passed into the callback, a dictionary (<code class="docutils literal notranslate"><span class="pre">dict</span></code>) which contains the content of
+the event notification, is displayed after having its content decoded from base64.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Basic pxGrid ANC Status Notification Example</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#running">Running</a></li>
+<li><a class="reference internal" href="#details">Details</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="basicancgetoperationstatusexample.html"
+                          title="previous chapter">Basic Get ANC Operation Status</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="basicidentitysessionnotificationexample.html"
+                          title="next chapter">Basic pxGrid Session Notification Example</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/basicancstatusnotificationexample.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="basicidentitysessionnotificationexample.html" title="Basic pxGrid Session Notification Example"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="basicancgetoperationstatusexample.html" title="Basic Get ANC Operation Status"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Cisco pxGrid DXL Client Library 1.0.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Basic pxGrid ANC Status Notification Example</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2024 Musarubra LLC.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+    </div>
+  </body>
+</html>

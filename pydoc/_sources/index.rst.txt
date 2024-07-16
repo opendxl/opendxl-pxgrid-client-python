@@ -16,6 +16,14 @@ Installation
 	:maxdepth: 1
 
 	installation
+    
+Patching to Python3.12
+----------------------
+
+.. toctree::
+	:maxdepth: 1
+
+	pythonpatch
 
 Samples
 -------
@@ -36,19 +44,19 @@ Basic
 
     basicancapplyendpointpolicybyipexample
     basicancapplyendpointpolicybymacexample
-    basicancapplyendpointpolicynotificationexample
-    basicancclearendpointpolicybyipexample
+    basicancapplyendpointpolicyexample
     basicancclearendpointpolicybymacexample
-    basicancclearendpointpolicynotificationexample
-    basicancgetendpointbyipexample
+    basicancclearendpointpolicyexample
+    basicanccreatepolicyexample
+    basicancdeletepolicybynameexample
     basicancgetendpointbymacexample
+    basicancgetendpointbynasipexample
+    basicancgetendpointpoliciesexample
+    basicancgetendpointsexample
     basicancretrieveallpoliciesexample
     basicancretrievepolicybynameexample
-    basicanccreatepolicynotificationexample
-    basicancupdatepolicynotificationexample
-    basicancdeletepolicynotificationexample
-    basicepssendmitigationactionbyipexample
-    basicepssendmitigationactionbymacexample
+    basicancgetoperationstatusexample
+    basicancstatusnotificationexample
     basicidentitysessionnotificationexample
 
 Python API

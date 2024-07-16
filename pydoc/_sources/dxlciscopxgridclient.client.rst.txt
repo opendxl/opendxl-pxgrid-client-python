@@ -2,6 +2,6 @@ dxlciscopxgridclient.client module
 ==================================
 
 .. automodule:: dxlciscopxgridclient.client
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

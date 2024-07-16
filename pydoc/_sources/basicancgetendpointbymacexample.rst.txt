@@ -52,23 +52,19 @@ should appear similar to the following:
     .. code-block:: json
 
         {
-            "ancEndpoint": [
-                {
-                    "macAddress": "00:11:22:33:44:55",
-                    "policyName": "quarantine_policy"
-                }
-            ],
-            "ancStatus": "success"
+            "macAddress": "00:11:22:33:44:55",
+            "policyName": "ANC_Shut"
         }
 
 The received results are displayed.
 
-If no policy has already been associated with the endpoint, an ``Exception``
-should be raised and output similar to the following should appear:
+If no policy has already been associated with the endpoint, output similar to the following should appear:
 
-    .. parsed-literal::
+    .. code-block:: json
 
-        Error: No policy applied to specified mac (0)
+        {
+            "204": "no content"
+        }
 
 Details
 *******
@@ -100,8 +96,6 @@ The majority of the sample code is shown below:
                 print("Response:\n{0}".format(
                     MessageUtils.dict_to_json(resp_dict, pretty_print=True)))
             except Exception as ex:
-                # An exception should be raised if a policy has not already been
-                # associated with the endpoint.
                 print(str(ex))
 
 
