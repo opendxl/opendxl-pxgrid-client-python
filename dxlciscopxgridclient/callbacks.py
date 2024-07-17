@@ -1,6 +1,22 @@
 from __future__ import absolute_import
+import base64
+import json
 from dxlbootstrap.util import MessageUtils
 from dxlclient.callbacks import EventCallback
+
+class CallbackHelper:
+    @staticmethod
+    def append_base64_decoded_content(event_dict):
+        if 'content' in event_dict:
+            content = event_dict['content']
+            event_dict['content_base64'] = content
+            if isinstance(content, str):
+                try:
+                    decoded_content = base64.b64decode(content).decode('utf-8')
+                    event_dict['content'] = json.loads(decoded_content)
+                except (TypeError, base64.binascii.Error):
+                    pass
+        return event_dict
 
 class AncStatusCallback(EventCallback):
     """
@@ -15,7 +31,8 @@ class AncStatusCallback(EventCallback):
         :param dxlclient.message.Event event: Message received for the event
             notification
         """
-        self._on_status_notification(MessageUtils.json_payload_to_dict(event))
+        event_dict = MessageUtils.json_payload_to_dict(event)
+        self._on_status_notification(CallbackHelper.append_base64_decoded_content(event_dict))
 
     def _on_status_notification(self, status_dict):
         """
@@ -26,7 +43,12 @@ class AncStatusCallback(EventCallback):
 
             {
                 "command": "MESSAGE",
-                "content": "eyJvcGVyYXRpb25JZCI6ImNpc2UucHNhcmNobGFiLmNvbToxMDYiLCJtYW\
+                "content" : {
+                    "operationId":"cise.psarchlab.com:219",
+                    "macAddress":"02:B5:47:E2:0E:73",
+                    "status":"SUCCESS"
+                },
+                "content_base64": "eyJvcGVyYXRpb25JZCI6ImNpc2UucHNhcmNobGFiLmNvbToxMDYiLCJtYW\
                             NBZGRyZXNzIjoiMDI6QjU6NDc6RTI6MEU6NzMiLCJzdGF0dXMiOiJTVUNDR\
                             VNTIiwicG9saWN5TmFtZSI6IkFOQ19TaHV0In0=",
                 "headers": {
@@ -72,7 +94,8 @@ class IdentitySessionCallback(EventCallback):
         :param dxlclient.message.Event event: Message received for the event
             notification
         """
-        self.on_session(MessageUtils.json_payload_to_dict(event))
+        event_dict = MessageUtils.json_payload_to_dict(event)
+        self.on_session(CallbackHelper.append_base64_decoded_content(event_dict))
 
     def on_session(self, session_dict):
         """
