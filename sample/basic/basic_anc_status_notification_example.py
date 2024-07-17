@@ -1,7 +1,5 @@
 from __future__ import absolute_import
 from __future__ import print_function
-import base64
-import json
 import os
 import sys
 import time
@@ -40,16 +38,6 @@ with DxlClient(config) as dxl_client:
 
     class MyAncNotificationCallback(AncStatusCallback):
         def _on_status_notification(self, status_dict):
-            if 'content' in status_dict:
-                content = status_dict['content']
-                if isinstance(content, str):
-                    try:
-                        decoded_content = base64.b64decode(content).decode('utf-8')
-                        status_dict['content'] = json.loads(decoded_content)
-                    except (TypeError, base64.binascii.Error) as e:
-                        print(f"Error decoding content: {e}")
-                else:
-                    print("Content is not a string, cannot decode.")
             print("anc_status_notification\n" +
                   MessageUtils.dict_to_json(status_dict, pretty_print=True) + '\n')
 
