@@ -37,8 +37,7 @@ jobs:
               
     - name: Install dependencies
       run: |
-        pip install --upgrade pip	
-        pip install --upgrade pipenv  
+        pip install --upgrade pip
         pip install wheel
         pip install .[test]
         python setup.py install
