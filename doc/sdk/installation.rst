@@ -13,8 +13,7 @@ Prerequisites
 * The DXL fabric to which the client will connect has been bridged to Cisco
   pxGrid.
 
-* Python 2.7.9 or higher in the Python 2.x series or Python 3.4.0 or higher
-  in the Python 3.x series installed within a Windows or Linux environment.
+* Python 3.8 or higher installed within a Windows or Linux environment.
 
 Installation
 ************

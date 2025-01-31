@@ -16,14 +16,6 @@ Installation
 	:maxdepth: 1
 
 	installation
-    
-Patching to Python3.12
-----------------------
-
-.. toctree::
-	:maxdepth: 1
-
-	pythonpatch
 
 Samples
 -------
